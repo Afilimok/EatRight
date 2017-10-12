@@ -1,0 +1,21 @@
+group 'com.ya'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.telegram', name: 'telegrambots', version: '2.4.4.5'
+    compile group: 'com.google.inject', name: 'guice-parent', version: '3.0'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
+
+    //loggers
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'log4j', version: '1.2.17'
+
+}
