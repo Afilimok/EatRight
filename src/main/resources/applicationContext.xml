@@ -10,9 +10,9 @@
 
     <bean id="telegramContext" class="org.telegram.telegrambots.ApiContextInitializer" init-method="init"/>
     <bean id="telegramBotsApi" class="org.telegram.telegrambots.TelegramBotsApi"/>
-    <bean id="funFoodBot" class="FunFoodBot">
-        <constructor-arg name="username" value="${funFoodBot.username}"/>
-        <constructor-arg name="token" value="${funFoodBot.token}"/>
+    <bean id="eatRightBot" class="EatRightBot">
+        <constructor-arg name="username" value="${eatRightBot.username}"/>
+        <constructor-arg name="token" value="${eatRightBot.token}"/>
     </bean>
 
 </beans>

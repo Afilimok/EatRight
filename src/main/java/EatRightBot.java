@@ -5,14 +5,14 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-public class FunFoodBot extends TelegramLongPollingBot {
+public class EatRightBot extends TelegramLongPollingBot {
 
-    Logger logger = LoggerFactory.getLogger(FunFoodBot.class);
+    private static final Logger logger = LoggerFactory.getLogger(EatRightBot.class);
 
     private final String username;
     private final String token;
 
-    public FunFoodBot(String username, String token) {
+    public EatRightBot(String username, String token) {
         this.username = username;
         this.token = token;
     }
@@ -22,16 +22,16 @@ public class FunFoodBot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             logger.info("New update received: {}", update.getMessage());
 
-            String message_text = update.getMessage().getText();
-            long chat_id = update.getMessage().getChatId();
+            String messageText = update.getMessage().getText();
+            long chatId = update.getMessage().getChatId();
 
             SendMessage message = new SendMessage()
-                    .setChatId(chat_id)
-                    .setText(message_text);
+                    .setChatId(chatId)
+                    .setText(messageText);
             try {
                 sendMessage(message);
             } catch (TelegramApiException e) {
-                logger.error("Exception while sending message to chat '{}'", chat_id, e);
+                logger.error("Exception while sending message to chat '{}'", chatId, e);
             }
         }
     }
