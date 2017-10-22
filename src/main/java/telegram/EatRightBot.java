@@ -6,17 +6,20 @@ import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
+import parsing.RequestProcessor;
 
 public class EatRightBot extends TelegramLongPollingBot {
 
     private static final Logger logger = LoggerFactory.getLogger(EatRightBot.class);
 
+    private final RequestProcessor requestProcessor;
     private final String username;
     private final String token;
 
-    public EatRightBot(String username, String token) {
+    public EatRightBot(String username, String token, RequestProcessor requestProcessor) {
         this.username = username;
         this.token = token;
+        this.requestProcessor = requestProcessor;
     }
 
     @Override
@@ -27,9 +30,11 @@ public class EatRightBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
 
+            String response = requestProcessor.processRequest(messageText);
+
             SendMessage message = new SendMessage()
                     .setChatId(chatId)
-                    .setText(messageText);
+                    .setText(response);
             try {
                 sendMessage(message);
             } catch (TelegramApiException e) {

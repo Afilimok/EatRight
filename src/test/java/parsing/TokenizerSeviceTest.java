@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class TokenizerSeviceTest {
 
-    private final TokenizerService tokenizerSevice = new TokenizerSeviceImpl();
+    private final TokenizerService tokenizerSevice = new TokenizerServiceImpl();
 
     @Test
     public void simpleTest() throws Exception {

@@ -1,6 +1,5 @@
 package parsing;
 
-import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
@@ -11,13 +10,13 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TokenizerSeviceImpl implements TokenizerService {
+public class TokenizerServiceImpl implements TokenizerService {
 
-    private static final Logger logger = LoggerFactory.getLogger(TokenizerSeviceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(TokenizerServiceImpl.class);
 
     private final CharArraySet stopwordSet;
 
-    public TokenizerSeviceImpl() {
+    public TokenizerServiceImpl() {
         stopwordSet = new RussianAnalyzer().getStopwordSet();
     }
 

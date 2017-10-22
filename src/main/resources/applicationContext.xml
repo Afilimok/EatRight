@@ -13,6 +13,12 @@
     <bean id="eatRightBot" class="telegram.EatRightBot">
         <constructor-arg name="username" value="${eatRightBot.username}"/>
         <constructor-arg name="token" value="${eatRightBot.token}"/>
+        <constructor-arg name="requestProcessor" ref="requestProcessor"/>
+    </bean>
+
+    <bean id="tokenizer" class="parsing.TokenizerServiceImpl"/>
+    <bean id="requestProcessor" class="parsing.RequestProcessor">
+        <constructor-arg name="tokenizer" ref="tokenizer"/>
     </bean>
 
 </beans>
