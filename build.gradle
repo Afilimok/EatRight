@@ -20,4 +20,7 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
     compile group: 'org.slf4j', name: 'log4j', version: '1.2.17'
 
+    //stanford nlp
+    compile group: 'edu.stanford.nlp', name: 'stanford-corenlp', version: '3.5.2'
+    compile group: 'com.google.guava', name: 'guava', version: '23.2-jre'
 }
