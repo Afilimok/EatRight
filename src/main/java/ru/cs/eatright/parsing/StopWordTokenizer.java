@@ -1,4 +1,4 @@
-package parsing;
+package ru.cs.eatright.parsing;
 
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;
@@ -7,34 +7,34 @@ import org.apache.lucene.analysis.ru.RussianAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TokenizerServiceImpl implements TokenizerService {
+public class StopWordTokenizer implements Tokenizer {
 
-    private static final Logger logger = LoggerFactory.getLogger(TokenizerServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(Tokenizer.class);
 
     private final CharArraySet stopwordSet;
 
-    public TokenizerServiceImpl() {
+    public StopWordTokenizer() {
         stopwordSet = new RussianAnalyzer().getStopwordSet();
     }
 
     @Override
-    public List<Token> tokenize(String text) {
-        List<Token> res = new ArrayList<>();
-        try {
-            TokenStream tokenStream = new SimpleAnalyzer().tokenStream(TokenizerService.class.getName(), text);
+    public List<Token> tokenize(String text) throws IOException {
+        List<Token> tokens = new ArrayList<>();
+
+        try (TokenStream tokenStream = new SimpleAnalyzer().tokenStream(Tokenizer.class.getName(), text)) {
             CharTermAttribute cattr = tokenStream.addAttribute(CharTermAttribute.class);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {
                 String word = cattr.toString();
-                res.add(new Token(word, stopwordSet.contains(word)));
+                tokens.add(new Token(word, stopwordSet.contains(word)));
             }
-        } catch (Exception e) {
-            logger.error("Unexpected exception occur during parsing text tokenization.", e);
         }
 
-        return res;
+        return tokens;
     }
 }

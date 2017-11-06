@@ -1,4 +1,4 @@
-package parsing;
+package ru.cs.eatright.parsing;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;

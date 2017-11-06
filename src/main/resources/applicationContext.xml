@@ -10,14 +10,14 @@
 
     <bean id="telegramContext" class="org.telegram.telegrambots.ApiContextInitializer" init-method="init"/>
     <bean id="telegramBotsApi" class="org.telegram.telegrambots.TelegramBotsApi"/>
-    <bean id="eatRightBot" class="telegram.EatRightBot">
+    <bean id="eatRightBot" class="ru.cs.eatright.telegram.EatRightBot">
         <constructor-arg name="username" value="${eatRightBot.username}"/>
         <constructor-arg name="token" value="${eatRightBot.token}"/>
         <constructor-arg name="requestProcessor" ref="requestProcessor"/>
     </bean>
 
-    <bean id="tokenizer" class="parsing.TokenizerServiceImpl"/>
-    <bean id="requestProcessor" class="parsing.RequestProcessor">
+    <bean id="tokenizer" class="ru.cs.eatright.parsing.StopWordTokenizer"/>
+    <bean id="requestProcessor" class="ru.cs.eatright.parsing.RequestProcessor">
         <constructor-arg name="tokenizer" ref="tokenizer"/>
     </bean>
 
