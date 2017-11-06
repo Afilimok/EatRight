@@ -11,7 +11,7 @@ import java.util.List;
 public class EatRightChunker {
 
     private final TokenSequencePattern tokenPattern =
-            TokenSequencePattern.compile("[{tag:/(JJ.*|NUM|NN.*)/}] [{tag:/NN.*/}]");
+            TokenSequencePattern.compile("[{tag:/(JJ.*|NUM|NN.*)/}]*\\s?[{tag:/NN.*/}]");
 
     public List<CoreMap> getNounPhrases(List<CoreLabel> annotatedText) {
         List<CoreMap> phrases = new ArrayList<>();
