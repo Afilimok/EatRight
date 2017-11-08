@@ -1,10 +1,10 @@
-package nlp;
+package ru.cs.eatright.nlp;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import nlp.RuleBasedPosTagger.PosTag;
+import ru.cs.eatright.nlp.RuleBasedPosTagger.PosTag;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;

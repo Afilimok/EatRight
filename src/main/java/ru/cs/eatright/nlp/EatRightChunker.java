@@ -1,4 +1,4 @@
-package nlp;
+package ru.cs.eatright.nlp;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.tokensregex.TokenSequenceMatcher;
