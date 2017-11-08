@@ -12,15 +12,16 @@ import static org.junit.Assert.*;
 
 public class NounPhraseTest {
 
-    private QueryProcessPipeline pipeline = null;
+    private QueryProcessor pipeline = null;
 
     @Before
     public void setPipeline() {
-        pipeline = new QueryProcessPipeline();
+        pipeline = new QueryProcessor();
     }
 
     @Test
     public void extractNounPhrases() throws Exception {
+        // todo describe expected vslues
         List<CoreMap> expected = Arrays.asList();
         assertEquals(expected, pipeline.processText("Вася ест вкусную кашу"));
 
