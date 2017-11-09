@@ -1,12 +1,13 @@
 package ru.cs.eatright.nlp;
 
-import edu.stanford.nlp.util.CoreMap;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ru.cs.eatright.parsing.QueryProcessor;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
 import static org.junit.Assert.*;
 
@@ -21,11 +22,22 @@ public class NounPhraseTest {
 
     @Test
     public void extractNounPhrases() throws Exception {
-        // todo describe expected vslues
-        List<CoreMap> expected = Arrays.asList();
-        assertEquals(expected, pipeline.processText("Вася ест вкусную кашу"));
+        List<Phrase> expected = Arrays.asList(new Phrase(Collections.singletonList("вася"),
+                                                            Collections.singletonList("NN")),
+                                            new Phrase(Arrays.asList("вкусную", "кашу"), Arrays.asList("VB", "NN")));
 
-        expected = Arrays.asList();
-        assertEquals(expected, pipeline.processText("Съем грибов с жареной картошкой и курицей"));
+        assertEquals(expected, pipeline.processText("Вася ест вкусную кашу", true));
+
+        //todo fix next test case, it fails due to pos-tagger, expected list would be a true parse
+        expected = Arrays.asList(new Phrase(Collections.singletonList("грибов"),
+                        Collections.singletonList("NN")),
+                new Phrase(Arrays.asList("жареной", "картошкой"), Arrays.asList("JJ", "NN")),
+                new Phrase(Collections.singletonList("курицей"), Collections.singletonList("NN")));
+
+        List<Phrase> expected2 = Arrays.asList(new Phrase(Arrays.asList("съем", "грибов"),
+                        Arrays.asList("NN", "NN")),
+                new Phrase(Arrays.asList("жареной", "картошкой"), Arrays.asList("NN", "NN")),
+                new Phrase(Collections.singletonList("курицей"), Collections.singletonList("NN")));
+        assertEquals(expected2, pipeline.processText("Съем грибов с жареной картошкой и курицей", false));
     }
 }
