@@ -4,9 +4,6 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.core.SimpleAnalyzer;
-import org.apache.lucene.analysis.snowball.SnowballFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tartarus.snowball.ext.RussianStemmer;
@@ -25,6 +22,7 @@ public class QueryProcessor {
     private StanfordCoreNLP pipeline = null;
     private EatRightChunker chunker = new EatRightChunker();
     private Tokenizer tokenizer = new StopWordTokenizer();
+    private final RussianStemmer stemmer = new RussianStemmer();
 
     public QueryProcessor() {
         Properties properties = new Properties();
@@ -34,24 +32,43 @@ public class QueryProcessor {
         pipeline.addAnnotator(new RusPosAnnotator());
     }
 
-    public List<Phrase> processText(String text, boolean excludeStopWords) {
-        List<Phrase> nounPhrases = null;
+    public List<Query> processText(String text, boolean excludeStopWords) {
         try {
-            List<Token> tokens = tokenizer.tokenize(text);
-            List<String> tokenValues = filterTokens(tokens, excludeStopWords);
-            String cleanedText = String.join(" ", tokenValues);
-            nounPhrases = extractNounPhrases(cleanedText);
-            //todo stemmer for long words
-            /*for (Phrase nounPhrase : nounPhrases) {
-                String nounPhrase2String = nounPhrase.getPhrase();
-                TokenStream tokenStream = new SimpleAnalyzer().tokenStream(Tokenizer.class.getName(), nounPhrase2String);
-                TokenStream result = new SnowballFilter(tokenStream, new RussianStemmer());
-
-            }*/
+            String cleanedText = tokenizeAndCleanText(text, excludeStopWords);
+            List<Phrase> nounPhrases = extractNounPhrases(cleanedText);
+            return getQueries(nounPhrases);
         } catch (IOException e) {
             logger.error("Exception occur during parsing text tokenization.", e);
         }
-        return nounPhrases;
+        return null;
+    }
+
+    private List<Query> getQueries(List<Phrase> nounPhrases) {
+        List<Query> queries = new ArrayList<>();
+        for (Phrase nounPhrase : nounPhrases) {
+            queries.add(new Query(nounPhrase.getPhraseWords(), getStemmedWords(nounPhrase.getPhraseWords())));
+        }
+        return queries;
+    }
+
+    private List<String> getStemmedWords(List<String> phraseWords) {
+        List<String> stemmedPhraseWords = new ArrayList<>();
+        for (String phraseWord : phraseWords) {
+            if (phraseWord.length() >= 5) {
+                stemmer.setCurrent(phraseWord);
+                stemmer.stem();
+                stemmedPhraseWords.add(stemmer.getCurrent());
+            } else {
+                stemmedPhraseWords.add(phraseWord);
+            }
+        }
+        return stemmedPhraseWords;
+    }
+
+    public String tokenizeAndCleanText(String text, boolean excludeStopWords) throws IOException {
+        List<Token> tokens = tokenizer.tokenize(text);
+        List<String> tokenValues = filterTokens(tokens, excludeStopWords);
+        return String.join(" ", tokenValues);
     }
 
     private List<String> filterTokens(List<Token> tokens, boolean excludeStopWords) {
@@ -69,16 +86,22 @@ public class QueryProcessor {
         return filteredTokens;
     }
 
-    private List<Phrase> extractNounPhrases(String text) {
-        Annotation annotation = new Annotation(text);
-        pipeline.annotate(annotation);
-        List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+    public List<Phrase> extractNounPhrases(String text) {
+        List<CoreMap> sentences = getSentenceAnnotations(text);
+        return getPhrases(sentences);
+    }
 
+    private List<Phrase> getPhrases(List<CoreMap> sentences) {
         List<Phrase> phrases = new ArrayList<>();
         for (CoreMap sentence : sentences) {
             phrases.addAll(chunker.getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class)));
         }
-
         return phrases;
+    }
+
+    private List<CoreMap> getSentenceAnnotations(String text) {
+        Annotation annotation = new Annotation(text);
+        pipeline.annotate(annotation);
+        return annotation.get(CoreAnnotations.SentencesAnnotation.class);
     }
 }
