@@ -32,7 +32,7 @@ public class QueryProcessor {
         pipeline.addAnnotator(new RusPosAnnotator());
     }
 
-    public List<Query> processText(String text, boolean excludeStopWords) {
+    public List<Query> process(String text, boolean excludeStopWords) {
         try {
             String cleanedText = tokenizeAndCleanText(text, excludeStopWords);
             List<Phrase> nounPhrases = extractNounPhrases(cleanedText);
@@ -55,14 +55,18 @@ public class QueryProcessor {
         List<String> stemmedPhraseWords = new ArrayList<>();
         for (String phraseWord : phraseWords) {
             if (phraseWord.length() >= 5) {
-                stemmer.setCurrent(phraseWord);
-                stemmer.stem();
-                stemmedPhraseWords.add(stemmer.getCurrent());
+                stemmedPhraseWords.add(stem(phraseWord));
             } else {
                 stemmedPhraseWords.add(phraseWord);
             }
         }
         return stemmedPhraseWords;
+    }
+
+    private String stem(String phraseWord) {
+        stemmer.setCurrent(phraseWord);
+        stemmer.stem();
+        return stemmer.getCurrent();
     }
 
     public String tokenizeAndCleanText(String text, boolean excludeStopWords) throws IOException {

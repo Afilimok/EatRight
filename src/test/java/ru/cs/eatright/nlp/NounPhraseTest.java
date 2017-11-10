@@ -1,6 +1,5 @@
 package ru.cs.eatright.nlp;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import ru.cs.eatright.parsing.Query;
@@ -50,12 +49,12 @@ public class NounPhraseTest {
                         Collections.singletonList("вася")),
                 new Query(Arrays.asList("вкусную", "кашу"), Arrays.asList("вкусн", "кашу")));
 
-        assertEquals(expected, pipeline.processText("Вася ест вкусную кашу", true));
+        assertEquals(expected, pipeline.process("Вася ест вкусную кашу", true));
 
         List<Query> expected2 = Arrays.asList(new Query(Arrays.asList("съем", "грибов"),
                         Arrays.asList("съем", "гриб")),
                 new Query(Arrays.asList("жареной", "картошкой"), Arrays.asList("жарен", "картошк")),
                 new Query(Collections.singletonList("курицей"), Collections.singletonList("куриц")));
-        assertEquals(expected2, pipeline.processText("Съем грибов с жареной картошкой и курицей", false));
+        assertEquals(expected2, pipeline.process("Съем грибов с жареной картошкой и курицей", false));
     }
 }
