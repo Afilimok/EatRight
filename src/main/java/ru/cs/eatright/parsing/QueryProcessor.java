@@ -7,7 +7,7 @@ import edu.stanford.nlp.util.CoreMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tartarus.snowball.ext.RussianStemmer;
-import ru.cs.eatright.nlp.EatRightChunker;
+import ru.cs.eatright.nlp.Chunker;
 import ru.cs.eatright.nlp.Phrase;
 import ru.cs.eatright.nlp.RusPosAnnotator;
 
@@ -20,7 +20,7 @@ public class QueryProcessor {
     private static final Logger logger = LoggerFactory.getLogger(QueryProcessor.class);
 
     private StanfordCoreNLP pipeline = null;
-    private EatRightChunker chunker = new EatRightChunker();
+    private Chunker chunker = new Chunker();
     private Tokenizer tokenizer = new StopWordTokenizer();
     private final RussianStemmer stemmer = new RussianStemmer();
 

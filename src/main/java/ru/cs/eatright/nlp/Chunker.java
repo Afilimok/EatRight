@@ -9,7 +9,7 @@ import edu.stanford.nlp.util.CoreMap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EatRightChunker {
+public class Chunker {
 
     private final TokenSequencePattern tokenPattern =
             TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/NN.*/}]");
