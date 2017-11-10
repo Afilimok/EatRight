@@ -13,6 +13,7 @@ import ru.cs.eatright.nlp.RusPosAnnotator;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -84,7 +85,7 @@ public class QueryProcessor {
         }
 
         if (filteredTokens.isEmpty()) {
-            filteredTokens.add("");
+            return Collections.emptyList();
         }
 
         return filteredTokens;
@@ -92,7 +93,18 @@ public class QueryProcessor {
 
     public List<Phrase> extractNounPhrases(String text) {
         List<CoreMap> sentences = getSentenceAnnotations(text);
+
+        if (sentences == null || sentences.isEmpty()) {
+            return Collections.emptyList();
+        }
+
         return getPhrases(sentences);
+    }
+
+    private List<CoreMap> getSentenceAnnotations(String text) {
+        Annotation annotation = new Annotation(text);
+        pipeline.annotate(annotation);
+        return annotation.get(CoreAnnotations.SentencesAnnotation.class);
     }
 
     private List<Phrase> getPhrases(List<CoreMap> sentences) {
@@ -100,12 +112,11 @@ public class QueryProcessor {
         for (CoreMap sentence : sentences) {
             phrases.addAll(chunker.getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class)));
         }
-        return phrases;
-    }
 
-    private List<CoreMap> getSentenceAnnotations(String text) {
-        Annotation annotation = new Annotation(text);
-        pipeline.annotate(annotation);
-        return annotation.get(CoreAnnotations.SentencesAnnotation.class);
+        if (phrases.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return phrases;
     }
 }
