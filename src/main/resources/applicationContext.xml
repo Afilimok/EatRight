@@ -16,9 +16,12 @@
         <constructor-arg name="requestProcessor" ref="requestProcessor"/>
     </bean>
 
-    <bean id="tokenizer" class="ru.cs.eatright.parsing.StopWordTokenizer"/>
+    <bean id="tokenizer" class="ru.cs.eatright.nlpmodel.StopWordTokenizer"/>
     <bean id="requestProcessor" class="ru.cs.eatright.parsing.RequestProcessor">
         <constructor-arg name="tokenizer" ref="tokenizer"/>
     </bean>
+    <bean id="chunker" class="ru.cs.eatright.nlpmodel.Chunker"/>
+    <bean id="stemmer" class="ru.cs.eatright.nlpmodel.Stemmer"/>
+    <bean id="pipeline" class="ru.cs.eatright.parsing.QueryPipeline"/>
 
 </beans>

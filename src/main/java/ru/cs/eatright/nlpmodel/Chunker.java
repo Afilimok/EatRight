@@ -1,4 +1,4 @@
-package ru.cs.eatright.nlp;
+package ru.cs.eatright.nlpmodel;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -7,6 +7,7 @@ import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
 import edu.stanford.nlp.util.CoreMap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Chunker {
@@ -14,7 +15,20 @@ public class Chunker {
     private final TokenSequencePattern tokenPattern =
             TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/NN.*/}]");
 
-    public List<Phrase> getNounPhrases(List<CoreLabel> annotatedText) {
+    public List<Phrase> getPhrases(List<CoreMap> sentences) {
+        List<Phrase> phrases = new ArrayList<>();
+        for (CoreMap sentence : sentences) {
+            phrases.addAll(getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class)));
+        }
+
+        if (phrases.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return phrases;
+    }
+
+    private List<Phrase> getNounPhrases(List<CoreLabel> annotatedText) {
         List<Phrase> phrases = new ArrayList<>();
         TokenSequenceMatcher tokenMatcher = tokenPattern.getMatcher(annotatedText);
         while (tokenMatcher.find()){

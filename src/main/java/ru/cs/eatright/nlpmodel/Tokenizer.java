@@ -1,4 +1,4 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlpmodel;
 
 import java.io.IOException;
 import java.util.List;

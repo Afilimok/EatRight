@@ -1,4 +1,4 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlpmodel;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;

@@ -1,4 +1,4 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlpmodel;
 
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;

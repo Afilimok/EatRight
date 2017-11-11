@@ -1,25 +1,26 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlpmodel;
 
 import com.google.common.base.MoreObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Query {
+public class Phrase {
 
-    private List<String> phraseWords;
-    private List<String> stemmedWords;
+    private List<String> phraseWords = new ArrayList<>();
+    private List<String> posTags = new ArrayList<>();
 
-    public Query(List<String> phraseWords, List<String> stemmedWords) {
+    public Phrase(List<String> phraseWords, List<String> posTags) {
         this.phraseWords = phraseWords;
-        this.stemmedWords = stemmedWords;
+        this.posTags = posTags;
     }
 
     public List<String> getPhraseWords() {
         return phraseWords;
     }
 
-    public List<String> getStemmedWords() {
-        return stemmedWords;
+    public List<String> getPosTags() {
+        return posTags;
     }
 
     @Override
@@ -27,16 +28,16 @@ public class Query {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Query query = (Query) o;
+        Phrase phrase = (Phrase) o;
 
-        if (!phraseWords.equals(query.phraseWords)) return false;
-        return stemmedWords.equals(query.stemmedWords);
+        if (!phraseWords.equals(phrase.phraseWords)) return false;
+        return posTags.equals(phrase.posTags);
     }
 
     @Override
     public int hashCode() {
         int result = phraseWords.hashCode();
-        result = 31 * result + stemmedWords.hashCode();
+        result = 31 * result + posTags.hashCode();
         return result;
     }
 
@@ -44,7 +45,7 @@ public class Query {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("phraseWords", phraseWords.toString())
-                .add("stemmedWords", stemmedWords.toString())
+                .add("posTags", posTags.toString())
                 .toString();
     }
 }
