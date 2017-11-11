@@ -20,6 +20,7 @@
     <bean id="requestProcessor" class="ru.cs.eatright.parsing.RequestProcessor">
         <constructor-arg name="tokenizer" ref="tokenizer"/>
     </bean>
+    <bean id="posTagHandler" class="ru.cs.eatright.nlpmodel.PosTagHandler"/>
     <bean id="chunker" class="ru.cs.eatright.nlpmodel.Chunker"/>
     <bean id="stemmer" class="ru.cs.eatright.nlpmodel.Stemmer"/>
     <bean id="pipeline" class="ru.cs.eatright.parsing.QueryPipeline"/>

@@ -1,38 +1,27 @@
 package ru.cs.eatright.parsing;
 
-import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.cs.eatright.nlpmodel.*;
+import ru.cs.eatright.nlpmodel.signatures.Phrase;
+import ru.cs.eatright.nlpmodel.signatures.Query;
+import ru.cs.eatright.nlpmodel.signatures.Token;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
 public class QueryPipeline {
     private static final Logger logger = LoggerFactory.getLogger(QueryPipeline.class);
 
-    private StanfordCoreNLP pipeline = null;
+    private PosTagHandler handler = new PosTagHandler();
     private Chunker chunker = new Chunker();
     private Stemmer stemmer = new Stemmer();
 
-    public QueryPipeline() {
-        Properties properties = new Properties();
-        properties.setProperty("annotators", "tokenize, ssplit");
-
-        pipeline = new StanfordCoreNLP(properties);
-        pipeline.addAnnotator(new RusPosAnnotator());
-    }
-
     public List<Query> convertRequest2StemmedQuery(List<Token> tokens, boolean excludeStopWords) {
         String cleanedText = filterString(tokens, excludeStopWords);
-        List<CoreMap> sentences = getSentenceAnnotations(cleanedText);
+        List<CoreMap> sentences = handler.getSentenceAnnotations(cleanedText);
         List<Phrase> phrases = chunker.getPhrases(sentences);
         return getQueries(phrases);
     }
@@ -55,18 +44,6 @@ public class QueryPipeline {
         }
 
         return filteredTokens;
-    }
-
-    private List<CoreMap> getSentenceAnnotations(String text) {
-        Annotation annotation = new Annotation(text);
-        pipeline.annotate(annotation);
-        List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
-
-        if (sentences == null || sentences.isEmpty()) {
-            return Collections.emptyList();
-        }
-
-        return sentences;
     }
 
     private List<Query> getQueries(List<Phrase> nounPhrases) {

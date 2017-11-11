@@ -1,8 +1,8 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlp;
 
 import org.junit.Test;
 import ru.cs.eatright.nlpmodel.StopWordTokenizer;
-import ru.cs.eatright.nlpmodel.Token;
+import ru.cs.eatright.nlpmodel.signatures.Token;
 import ru.cs.eatright.nlpmodel.Tokenizer;
 
 import java.util.Arrays;

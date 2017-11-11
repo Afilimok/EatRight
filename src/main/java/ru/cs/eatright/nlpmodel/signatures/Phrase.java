@@ -1,4 +1,4 @@
-package ru.cs.eatright.nlpmodel;
+package ru.cs.eatright.nlpmodel.signatures;
 
 import com.google.common.base.MoreObjects;
 

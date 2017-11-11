@@ -2,10 +2,8 @@ package ru.cs.eatright.parsing;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.cs.eatright.nlpmodel.Query;
-import ru.cs.eatright.nlpmodel.Token;
+import ru.cs.eatright.nlpmodel.signatures.Query;
+import ru.cs.eatright.nlpmodel.signatures.Token;
 import ru.cs.eatright.nlpmodel.Tokenizer;
 
 import java.util.List;
