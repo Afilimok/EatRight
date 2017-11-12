@@ -1,8 +1,7 @@
 package ru.cs.eatright.nlp;
 
 import org.junit.Test;
-import ru.cs.eatright.nlpmodel.*;
-import ru.cs.eatright.nlpmodel.signatures.Phrase;
+import ru.cs.eatright.nlp.signatures.Phrase;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,7 +11,6 @@ import static org.junit.Assert.*;
 
 public class ChunkerTest {
 
-    private final PosTagHandler handler = new PosTagHandler();
     private final Chunker chunker = new Chunker();
 
     @Test
@@ -21,7 +19,7 @@ public class ChunkerTest {
                 new Phrase(Collections.singletonList("вася"), Collections.singletonList("NN")),
                 new Phrase(Arrays.asList("вкусную", "кашу"), Arrays.asList("VB", "NN"))
         );
-        List<Phrase> actual = chunker.getPhrases(handler.getSentenceAnnotations("вася ест вкусную кашу"));
+        List<Phrase> actual = chunker.getPhrases("вася ест вкусную кашу");
 
         assertEquals(expected, actual);
     }
@@ -34,8 +32,7 @@ public class ChunkerTest {
                 new Phrase(Collections.singletonList("курицей"), Collections.singletonList("NN"))
         );
 
-        List<Phrase> actual = chunker.getPhrases(
-                handler.getSentenceAnnotations("съем грибов с жареной картошкой и курицей"));
+        List<Phrase> actual = chunker.getPhrases("съем грибов с жареной картошкой и курицей");
 
         assertEquals(expected, actual);
     }

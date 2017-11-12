@@ -2,9 +2,9 @@ package ru.cs.eatright.parsing;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.cs.eatright.nlpmodel.signatures.Query;
-import ru.cs.eatright.nlpmodel.signatures.Token;
-import ru.cs.eatright.nlpmodel.Tokenizer;
+import ru.cs.eatright.nlp.signatures.Query;
+import ru.cs.eatright.nlp.signatures.Token;
+import ru.cs.eatright.nlp.Tokenizer;
 
 import java.util.List;
 

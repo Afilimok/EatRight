@@ -1,12 +1,11 @@
 package ru.cs.eatright.parsing;
 
-import edu.stanford.nlp.util.CoreMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.cs.eatright.nlpmodel.*;
-import ru.cs.eatright.nlpmodel.signatures.Phrase;
-import ru.cs.eatright.nlpmodel.signatures.Query;
-import ru.cs.eatright.nlpmodel.signatures.Token;
+import ru.cs.eatright.nlp.*;
+import ru.cs.eatright.nlp.signatures.Phrase;
+import ru.cs.eatright.nlp.signatures.Query;
+import ru.cs.eatright.nlp.signatures.Token;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,14 +14,12 @@ import java.util.List;
 public class QueryPipeline {
     private static final Logger logger = LoggerFactory.getLogger(QueryPipeline.class);
 
-    private PosTagHandler handler = new PosTagHandler();
     private Chunker chunker = new Chunker();
     private Stemmer stemmer = new Stemmer();
 
     public List<Query> convertRequest2StemmedQuery(List<Token> tokens, boolean excludeStopWords) {
         String cleanedText = filterString(tokens, excludeStopWords);
-        List<CoreMap> sentences = handler.getSentenceAnnotations(cleanedText);
-        List<Phrase> phrases = chunker.getPhrases(sentences);
+        List<Phrase> phrases = chunker.getPhrases(cleanedText);
         return getQueries(phrases);
     }
 

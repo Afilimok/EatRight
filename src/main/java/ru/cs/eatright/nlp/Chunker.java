@@ -1,22 +1,36 @@
-package ru.cs.eatright.nlpmodel;
+package ru.cs.eatright.nlp;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.tokensregex.TokenSequenceMatcher;
 import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
-import ru.cs.eatright.nlpmodel.signatures.Phrase;
+import ru.cs.eatright.nlp.signatures.Phrase;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 
 public class Chunker {
 
     private final TokenSequencePattern tokenPattern =
             TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/NN.*/}]");
 
-    public List<Phrase> getPhrases(List<CoreMap> sentences) {
+    private StanfordCoreNLP pipeline = null;
+
+    public Chunker() {
+        Properties properties = new Properties();
+        properties.setProperty("annotators", "tokenize, ssplit");
+
+        this.pipeline = new StanfordCoreNLP(properties);
+        pipeline.addAnnotator(new RusPosAnnotator());
+    }
+
+    public List<Phrase> getPhrases(String text) {
+        List<CoreMap> sentences = getSentenceAnnotations(text);
         List<Phrase> phrases = new ArrayList<>();
         for (CoreMap sentence : sentences) {
             phrases.addAll(getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class)));
@@ -47,5 +61,17 @@ public class Chunker {
             phrases.add(new Phrase(words, postags));
         }
         return phrases;
+    }
+
+    private List<CoreMap> getSentenceAnnotations(String text) {
+        Annotation annotation = new Annotation(text);
+        pipeline.annotate(annotation);
+        List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+
+        if (sentences == null || sentences.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return sentences;
     }
 }

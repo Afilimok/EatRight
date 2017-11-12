@@ -1,4 +1,4 @@
-package ru.cs.eatright.nlpmodel;
+package ru.cs.eatright.nlp;
 
 import org.tartarus.snowball.ext.RussianStemmer;
 

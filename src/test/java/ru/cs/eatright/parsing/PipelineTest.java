@@ -1,8 +1,8 @@
 package ru.cs.eatright.parsing;
 
 import org.junit.Test;
-import ru.cs.eatright.nlpmodel.*;
-import ru.cs.eatright.nlpmodel.signatures.Query;
+import ru.cs.eatright.nlp.*;
+import ru.cs.eatright.nlp.signatures.Query;
 
 import java.io.IOException;
 import java.util.Arrays;

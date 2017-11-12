@@ -1,4 +1,4 @@
-package ru.cs.eatright.nlpmodel;
+package ru.cs.eatright.nlp;
 
 import java.util.Arrays;
 import java.util.Comparator;
