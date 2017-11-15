@@ -31,7 +31,6 @@ public class ChunkerTest {
                 new Phrase(Arrays.asList("жареной", "картошкой"), Arrays.asList("NN", "NN")),
                 new Phrase(Collections.singletonList("курицей"), Collections.singletonList("NN"))
         );
-
         List<Phrase> actual = chunker.getPhrases("съем грибов с жареной картошкой и курицей");
 
         assertEquals(expected, actual);

@@ -7,6 +7,7 @@ import ru.cs.eatright.nlp.signatures.Phrase;
 import ru.cs.eatright.nlp.signatures.Query;
 import ru.cs.eatright.nlp.signatures.Token;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,15 +15,18 @@ import java.util.List;
 public class QueryPipeline {
     private static final Logger logger = LoggerFactory.getLogger(QueryPipeline.class);
 
-    private Chunker chunker;
-    private Stemmer stemmer;
+    private final Tokenizer tokenizer;
+    private final Chunker chunker;
+    private final Stemmer stemmer;
 
-    public QueryPipeline(Chunker chunker, Stemmer stemmer) {
+    public QueryPipeline(Tokenizer tokenizer, Chunker chunker, Stemmer stemmer) {
+        this.tokenizer = tokenizer;
         this.chunker = chunker;
         this.stemmer = stemmer;
     }
 
-    public List<Query> convertRequest2StemmedQuery(List<Token> tokens, boolean excludeStopWords) {
+    public List<Query> convertRequest2StemmedQuery(String text, boolean excludeStopWords) throws IOException {
+        List<Token> tokens = tokenizer.tokenize(text);
         String cleanedText = filterString(tokens, excludeStopWords);
         List<Phrase> phrases = chunker.getPhrases(cleanedText);
         return getQueries(phrases);

@@ -16,7 +16,7 @@ public class PipelineTest {
     private final Tokenizer tokenizer = new StopWordTokenizer();
     private final Chunker chunker = new Chunker();
     private final Stemmer stemmer = new Stemmer();
-    private final QueryPipeline pipeline = new QueryPipeline(chunker, stemmer);
+    private final QueryPipeline pipeline = new QueryPipeline(tokenizer, chunker, stemmer);
 
     @Test
     public void stemQueries1() throws IOException {
@@ -26,7 +26,9 @@ public class PipelineTest {
         );
 
         assertEquals(expected, pipeline.convertRequest2StemmedQuery(
-                tokenizer.tokenize("Вася ест вкусную кашу"), false));
+                "Вася ест вкусную кашу",
+                false)
+        );
     }
 
     @Test
@@ -38,6 +40,8 @@ public class PipelineTest {
         );
 
         assertEquals(expected, pipeline.convertRequest2StemmedQuery(
-                tokenizer.tokenize("Съем грибов с жареной картошкой и курицей"), false));
+                "Съем грибов с жареной картошкой и курицей",
+                false)
+        );
     }
 }
