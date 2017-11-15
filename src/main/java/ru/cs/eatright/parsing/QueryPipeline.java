@@ -14,8 +14,13 @@ import java.util.List;
 public class QueryPipeline {
     private static final Logger logger = LoggerFactory.getLogger(QueryPipeline.class);
 
-    private Chunker chunker = new Chunker();
-    private Stemmer stemmer = new Stemmer();
+    private Chunker chunker;
+    private Stemmer stemmer;
+
+    public QueryPipeline(Chunker chunker, Stemmer stemmer) {
+        this.chunker = chunker;
+        this.stemmer = stemmer;
+    }
 
     public List<Query> convertRequest2StemmedQuery(List<Token> tokens, boolean excludeStopWords) {
         String cleanedText = filterString(tokens, excludeStopWords);

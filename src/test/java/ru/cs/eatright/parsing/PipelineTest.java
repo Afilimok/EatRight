@@ -14,7 +14,9 @@ import static org.junit.Assert.*;
 public class PipelineTest {
 
     private final Tokenizer tokenizer = new StopWordTokenizer();
-    private final QueryPipeline pipeline = new QueryPipeline();
+    private final Chunker chunker = new Chunker();
+    private final Stemmer stemmer = new Stemmer();
+    private final QueryPipeline pipeline = new QueryPipeline(chunker, stemmer);
 
     @Test
     public void stemQueries1() throws IOException {
