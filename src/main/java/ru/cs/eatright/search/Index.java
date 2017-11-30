@@ -1,23 +1,31 @@
 package ru.cs.eatright.search;
 
-import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import ru.cs.eatright.model.Product;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Index {
-    private final Integer position;
-    private final String ngramm;
+    private final Map<IndexKey, Set<Product>> data;
 
-    public Index(Integer position, String ngramm) {
-        this.position = position;
-        this.ngramm = ngramm;
+    public Index() {
+        data = new HashMap<>();
     }
 
-    public Integer getPosition() {
-        return position;
+    public void update(IndexKey key, Set<Product> newProducts) {
+        Set<Product> products = data.getOrDefault(key, new HashSet<>());
+        products.addAll(newProducts);
+        data.put(key, products);
     }
 
-    public String getNgramm() {
-        return ngramm;
+    public Map<IndexKey, Set<Product>> getData() {
+        return data;
+    }
+
+    public Set<Product> getProductsByKey(IndexKey key) {
+        return data.get(key);
     }
 
     @Override
@@ -25,20 +33,11 @@ public class Index {
         if (this == o) return true;
         if (!(o instanceof Index)) return false;
         Index index = (Index) o;
-        return Objects.equal(getPosition(), index.getPosition()) &&
-                Objects.equal(getNgramm(), index.getNgramm());
+        return Objects.equal(getData(), index.getData());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getPosition(), getNgramm());
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("position", position)
-                .add("ngramm", ngramm)
-                .toString();
+        return Objects.hashCode(getData());
     }
 }
