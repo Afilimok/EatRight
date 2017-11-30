@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class IndexHelperTest {
     @Test
-    public void get2GramsByString() throws Exception {
+    public void get2GramsByString() {
         Set<IndexKey> expected = new HashSet<>();
         expected.add(new IndexKey(0, "$м"));
         expected.add(new IndexKey(1, "мя"));

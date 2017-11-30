@@ -20,7 +20,7 @@ public class IndexSearcherTest {
     private final Product poison = new Product("яд", 0, 0, 0, 0, 0, 0);
 
     @Test
-    public void search() throws Exception {
+    public void search() {
         Set<Product> products = new HashSet<>();
         products.addAll(Arrays.asList(carrot, milk, cabbage, poison, potato));
         Index index = IndexBuilder.createIndex(products);

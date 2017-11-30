@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class IndexBuilderTest {
 
     @Test
-    public void createIndex() throws Exception {
+    public void createIndex() {
         Set<Product> products = Collections.singleton(new Product("мясо", 0, 0, 0, 0, 0, 0));
 
         Index index = new Index();
