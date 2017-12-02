@@ -9,9 +9,9 @@ public class  Product {
     private final double carbohydrate;
     private final double calorie;
     private final double glycemic_index;
-    private final double type;
+    private final int type;
 
-    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemic_index, double type) {
+    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemic_index, int type) {
         this.name = name;
         this.protein = protein;
         this.fat = fat;
@@ -35,7 +35,7 @@ public class  Product {
     public double getGlycemic_index() {
         return glycemic_index;
     }
-    public double getType() {
+    public int getType() {
         return type;
     }
 
