@@ -32,7 +32,7 @@ public class  Product {
     public double getCalorie() {
         return calorie;
     }
-    public double getglycemic_index() {
+    public double getGlycemic_index() {
         return glycemic_index;
     }
     public double getType() {
