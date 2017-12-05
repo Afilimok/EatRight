@@ -7,20 +7,14 @@ import java.util.List;
 
 public class Phrase {
 
-    private List<String> phraseWords = new ArrayList<>();
-    private List<String> posTags = new ArrayList<>();
+    private List<Word> words = new ArrayList<>();
 
-    public Phrase(List<String> phraseWords, List<String> posTags) {
-        this.phraseWords = phraseWords;
-        this.posTags = posTags;
+    public Phrase(List<Word> words) {
+        this.words = words;
     }
 
-    public List<String> getPhraseWords() {
-        return phraseWords;
-    }
-
-    public List<String> getPosTags() {
-        return posTags;
+    public List<Word> getWords() {
+        return words;
     }
 
     @Override
@@ -30,22 +24,18 @@ public class Phrase {
 
         Phrase phrase = (Phrase) o;
 
-        if (!phraseWords.equals(phrase.phraseWords)) return false;
-        return posTags.equals(phrase.posTags);
+        return words.equals(phrase.words);
     }
 
     @Override
     public int hashCode() {
-        int result = phraseWords.hashCode();
-        result = 31 * result + posTags.hashCode();
-        return result;
+        return words.hashCode();
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("phraseWords", phraseWords.toString())
-                .add("posTags", posTags.toString())
+                .add("words", words.toString())
                 .toString();
     }
 }

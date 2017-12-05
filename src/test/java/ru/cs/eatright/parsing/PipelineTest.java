@@ -3,6 +3,7 @@ package ru.cs.eatright.parsing;
 import org.junit.Test;
 import ru.cs.eatright.nlp.*;
 import ru.cs.eatright.nlp.signatures.Query;
+import ru.cs.eatright.nlp.signatures.Word;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,8 +22,8 @@ public class PipelineTest {
     @Test
     public void stemQueries1() throws IOException {
         List<Query> expected = Arrays.asList(
-                new Query(Collections.singletonList("вася"), Collections.singletonList("вася")),
-                new Query(Arrays.asList("вкусную", "кашу"), Arrays.asList("вкусн", "кашу"))
+                new Query(Collections.singletonList(new Word("вася", "вася"))),
+                new Query(Arrays.asList(new Word("вкусную", "вкусн"), new Word("кашу", "кашу")))
         );
 
         assertEquals(expected, pipeline.convertRequest2StemmedQuery(
@@ -34,9 +35,9 @@ public class PipelineTest {
     @Test
     public void stemQueries2() throws IOException {
         List<Query> expected = Arrays.asList(
-                new Query(Arrays.asList("съем", "грибов"), Arrays.asList("съем", "гриб")),
-                new Query(Arrays.asList("жареной", "картошкой"), Arrays.asList("жарен", "картошк")),
-                new Query(Collections.singletonList("курицей"), Collections.singletonList("куриц"))
+                new Query(Arrays.asList(new Word("съем", "съем"), new Word("грибов", "гриб"))),
+                new Query(Arrays.asList(new Word("жареной", "жарен"), new Word("картошкой", "картошк"))),
+                new Query(Collections.singletonList(new Word("курицей", "куриц")))
         );
 
         assertEquals(expected, pipeline.convertRequest2StemmedQuery(

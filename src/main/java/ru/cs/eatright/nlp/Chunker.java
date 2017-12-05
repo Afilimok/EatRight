@@ -8,6 +8,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import ru.cs.eatright.nlp.signatures.Phrase;
+import ru.cs.eatright.nlp.signatures.Word;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,16 +50,14 @@ public class Chunker {
         while (tokenMatcher.find()){
             List<CoreMap> matches = tokenMatcher.groupNodes();
 
-            List<String> words = new ArrayList<>();
-            List<String> postags = new ArrayList<>();
+            List<Word> words = new ArrayList<>();
             for (CoreMap match : matches) {
                 String token = match.get(CoreAnnotations.TextAnnotation.class);
                 String pos = match.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-                words.add(token);
-                postags.add(pos);
+                words.add(new Word(token, pos));
             }
 
-            phrases.add(new Phrase(words, postags));
+            phrases.add(new Phrase(words));
         }
         return phrases;
     }

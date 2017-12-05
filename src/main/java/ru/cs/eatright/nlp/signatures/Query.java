@@ -2,24 +2,19 @@ package ru.cs.eatright.nlp.signatures;
 
 import com.google.common.base.MoreObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Query {
 
-    private List<String> phraseWords;
-    private List<String> stemmedWords;
+    private List<Word> words = new ArrayList<>();
 
-    public Query(List<String> phraseWords, List<String> stemmedWords) {
-        this.phraseWords = phraseWords;
-        this.stemmedWords = stemmedWords;
+    public Query(List<Word> words) {
+        this.words = words;
     }
 
-    public List<String> getPhraseWords() {
-        return phraseWords;
-    }
-
-    public List<String> getStemmedWords() {
-        return stemmedWords;
+    public List<Word> getWords() {
+        return words;
     }
 
     @Override
@@ -29,22 +24,18 @@ public class Query {
 
         Query query = (Query) o;
 
-        if (!phraseWords.equals(query.phraseWords)) return false;
-        return stemmedWords.equals(query.stemmedWords);
+        return words.equals(query.words);
     }
 
     @Override
     public int hashCode() {
-        int result = phraseWords.hashCode();
-        result = 31 * result + stemmedWords.hashCode();
-        return result;
+        return words.hashCode();
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("phraseWords", phraseWords.toString())
-                .add("stemmedWords", stemmedWords.toString())
+                .add("phraseWords", words.toString())
                 .toString();
     }
 }

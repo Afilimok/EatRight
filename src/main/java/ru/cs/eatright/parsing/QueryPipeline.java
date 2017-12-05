@@ -6,6 +6,7 @@ import ru.cs.eatright.nlp.*;
 import ru.cs.eatright.nlp.signatures.Phrase;
 import ru.cs.eatright.nlp.signatures.Query;
 import ru.cs.eatright.nlp.signatures.Token;
+import ru.cs.eatright.nlp.signatures.Word;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +56,12 @@ public class QueryPipeline {
     private List<Query> getQueries(List<Phrase> nounPhrases) {
         List<Query> queries = new ArrayList<>();
         for (Phrase nounPhrase : nounPhrases) {
-            queries.add(new Query(nounPhrase.getPhraseWords(), stemmer.getStemmedWords(nounPhrase.getPhraseWords())));
+            List<Word> words = nounPhrase.getWords();
+            List<Word> modifiedWords = new ArrayList<>();
+            for (Word word : words) {
+                modifiedWords.add(new Word(word.getWord(), stemmer.getStemmedWord(word.getWord())));
+            }
+            queries.add(new Query(modifiedWords));
         }
         return queries;
     }
