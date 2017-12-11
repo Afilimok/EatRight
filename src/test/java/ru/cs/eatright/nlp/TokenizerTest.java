@@ -1,6 +1,8 @@
-package ru.cs.eatright.parsing;
+package ru.cs.eatright.nlp;
 
 import org.junit.Test;
+import ru.cs.eatright.nlp.signatures.Token;
+
 import java.util.Arrays;
 import java.util.List;
 
