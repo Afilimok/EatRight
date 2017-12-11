@@ -1,0 +1,9 @@
+{
+  "name" : "apple",
+  "protein": 0.4,
+  "fat": 0.4,
+  "carbohydrate" : 9.8,
+  "calorie" : "47",
+  "Glycemic_index" : "30",
+  "type" : 3
+}
