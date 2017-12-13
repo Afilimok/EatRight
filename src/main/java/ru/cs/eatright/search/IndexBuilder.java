@@ -1,6 +1,6 @@
 package ru.cs.eatright.search;
 
-import ru.cs.eatright.model.Product;
+import ru.cs.eatright.knowledgebase.Product;
 
 import java.util.Collections;
 import java.util.Set;

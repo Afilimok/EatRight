@@ -1,6 +1,9 @@
 package ru.cs.eatright.search;
 
-import ru.cs.eatright.model.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.cs.eatright.knowledgebase.Bootstrapper;
+import ru.cs.eatright.knowledgebase.Product;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
@@ -12,10 +15,20 @@ import java.util.stream.IntStream;
 import static ru.cs.eatright.search.IndexHelper.getNGramsByString;
 
 public class IndexSearcher {
+
+    private static final Logger logger = LoggerFactory.getLogger(IndexSearcher.class);
+
+    private Index index;
+
+    public void init() {
+        index = Bootstrapper.buildKnowledgeBase();
+        logger.info("KnowledgeApplier initialized");
+    }
+
     /**
     * @return map of found products and their frequencies
     */
-    public static Map<Product, Integer> searchData(Index index, String str) {
+    public Map<Product, Integer> searchData(String str) {
         Set<IndexKey> indexKeys = getNGramsByString(str, 2);
         indexKeys.addAll(getNGramsByString(str, 3));
 

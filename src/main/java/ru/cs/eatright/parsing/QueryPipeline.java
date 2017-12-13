@@ -59,7 +59,7 @@ public class QueryPipeline {
             List<Word> words = nounPhrase.getWords();
             List<Word> modifiedWords = new ArrayList<>();
             for (Word word : words) {
-                modifiedWords.add(new Word(word.getWord(), stemmer.getStemmedWord(word.getWord())));
+                modifiedWords.add(new Word(stemmer.getStemmedWord(word.getWord()), word.getPos()));
             }
             queries.add(new Query(modifiedWords));
         }

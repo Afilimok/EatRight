@@ -17,8 +17,17 @@
     </bean>
 
     <bean id="tokenizer" class="ru.cs.eatright.nlp.StopWordTokenizer"/>
+
+    <bean id="indexSearcher" class="ru.cs.eatright.search.IndexSearcher" init-method="init"/>
+
+    <bean id="knowledgeApplier" class="ru.cs.eatright.search.KnowledgeApplierImpl">
+        <constructor-arg name="indexSearcher" ref="indexSearcher"/>
+    </bean>
+
     <bean id="requestProcessor" class="ru.cs.eatright.parsing.RequestProcessor">
         <constructor-arg name="pipeline" ref="pipeline"/>
+        <constructor-arg name="knowledgeApplier" ref="knowledgeApplier"/>
+
     </bean>
     <bean id="chunker" class="ru.cs.eatright.nlp.Chunker"/>
     <bean id="stemmer" class="ru.cs.eatright.nlp.Stemmer"/>
