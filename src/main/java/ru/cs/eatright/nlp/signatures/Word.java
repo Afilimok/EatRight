@@ -1,12 +1,13 @@
 package ru.cs.eatright.nlp.signatures;
 
 import com.google.common.base.MoreObjects;
+import ru.cs.eatright.nlp.RuleBasedPosTagger;
 
 public class Word {
     private String word;
-    private String pos;
+    private RuleBasedPosTagger.PosTag pos;
 
-    public Word(String word, String pos) {
+    public Word(String word, RuleBasedPosTagger.PosTag pos) {
         this.word = word;
         this.pos = pos;
     }
@@ -15,7 +16,7 @@ public class Word {
         return word;
     }
 
-    public String getPos() {
+    public RuleBasedPosTagger.PosTag getPos() {
         return pos;
     }
 

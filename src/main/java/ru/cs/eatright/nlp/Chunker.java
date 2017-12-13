@@ -10,10 +10,9 @@ import edu.stanford.nlp.util.CoreMap;
 import ru.cs.eatright.nlp.signatures.Phrase;
 import ru.cs.eatright.nlp.signatures.Word;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
+
+import static ru.cs.eatright.nlp.RuleBasedPosTagger.*;
 
 public class Chunker {
 
@@ -53,14 +52,22 @@ public class Chunker {
             List<Word> words = new ArrayList<>();
             for (CoreMap match : matches) {
                 String token = match.get(CoreAnnotations.TextAnnotation.class);
-                String pos = match.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-                words.add(new Word(token, pos));
+                PosTag postag = convertTag(match.get(CoreAnnotations.PartOfSpeechAnnotation.class));
+                words.add(new Word(token, postag));
             }
 
             phrases.add(new Phrase(words));
         }
         return phrases;
     }
+
+    private PosTag convertTag(String tag) {
+        for (PosTag posTag: PosTag.values()) {
+            if (posTag.getPennTag().equals(tag)) return posTag;
+        }
+        throw new RuntimeException("Cannot convert pos tag " + tag);
+    }
+
 
     private List<CoreMap> getSentenceAnnotations(String text) {
         Annotation annotation = new Annotation(text);

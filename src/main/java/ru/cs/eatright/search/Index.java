@@ -1,7 +1,7 @@
 package ru.cs.eatright.search;
 
 import com.google.common.base.Objects;
-import ru.cs.eatright.model.Product;
+import ru.cs.eatright.knowledgebase.Product;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
