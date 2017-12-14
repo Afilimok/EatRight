@@ -1,7 +1,7 @@
 package ru.cs.eatright.knowledgebase;
 
 public class  Product {
-    private String name;
+    private final String name;
     private final double protein;
     private final double fat;
     private final double carbohydrate;

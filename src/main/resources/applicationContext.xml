@@ -18,7 +18,16 @@
 
     <bean id="tokenizer" class="ru.cs.eatright.nlp.StopWordTokenizer"/>
 
-    <bean id="indexSearcher" class="ru.cs.eatright.search.IndexSearcher" init-method="init"/>
+    <bean id="bootstrapper" class="ru.cs.eatright.knowledgebase.Bootstrapper">
+        <constructor-arg name="indexBuilder" ref="indexBuilder"/>
+    </bean>
+
+    <bean id="indexBuilder" class="ru.cs.eatright.search.IndexBuilder">
+        <constructor-arg name="stemmer" ref="stemmer"/>
+    </bean>
+    <bean id="indexSearcher" class="ru.cs.eatright.search.IndexSearcher" init-method="init">
+        <constructor-arg name="bootstrapper" ref="bootstrapper"/>
+    </bean>
 
     <bean id="knowledgeApplier" class="ru.cs.eatright.search.KnowledgeApplierImpl">
         <constructor-arg name="indexSearcher" ref="indexSearcher"/>

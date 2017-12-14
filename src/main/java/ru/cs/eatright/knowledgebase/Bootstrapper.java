@@ -13,7 +13,13 @@ public class Bootstrapper {
 
     private static final Logger logger = LoggerFactory.getLogger(Bootstrapper.class);
 
-    public static Index buildKnowledgeBase() {
+    private final IndexBuilder indexBuilder;
+
+    public Bootstrapper(IndexBuilder indexBuilder) {
+        this.indexBuilder = indexBuilder;
+    }
+
+    public Index buildKnowledgeBase() {
         //todo: we should stemm product names
         Set<Product> products = new HashSet<>();
         try {
@@ -23,7 +29,7 @@ public class Bootstrapper {
                 logger.info("read product " + product.getName());
                 products.add(ProductReader.readProduct(file));
             }
-            return IndexBuilder.createIndex(products);
+            return indexBuilder.createIndex(products);
         } catch (Exception e) {
             logger.error("Exception during knowledge base bootstrapping", e);
             return null;

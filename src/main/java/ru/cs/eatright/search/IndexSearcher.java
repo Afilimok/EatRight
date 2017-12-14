@@ -18,10 +18,15 @@ public class IndexSearcher {
 
     private static final Logger logger = LoggerFactory.getLogger(IndexSearcher.class);
 
+    private final Bootstrapper bootstrapper;
     private Index index;
 
+    public IndexSearcher(Bootstrapper bootstrapper) {
+        this.bootstrapper = bootstrapper;
+    }
+
     public void init() {
-        index = Bootstrapper.buildKnowledgeBase();
+        index = bootstrapper.buildKnowledgeBase();
         logger.info("KnowledgeApplier initialized");
     }
 
