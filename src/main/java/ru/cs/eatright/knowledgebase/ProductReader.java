@@ -1,4 +1,4 @@
-package ru.cs.eatright.base;
+package ru.cs.eatright.knowledgebase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,10 +8,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ProductReader {
-    private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    public Product readProduct (String file) throws FileNotFoundException {
-        Scanner input = new Scanner(new File(file));
+    public static Product readProduct (File file) throws FileNotFoundException {
+        Scanner input = new Scanner(file);
         StringBuilder jsoninput = new StringBuilder();
         while (input.hasNextLine()) {
             jsoninput.append(input.nextLine());

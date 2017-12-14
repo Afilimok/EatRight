@@ -1,8 +1,9 @@
-package ru.cs.eatright.base;
+package ru.cs.eatright.knowledgebase;
 
 import org.junit.Test;
 import java.io.File;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class ProductReaderTest {
     @Test

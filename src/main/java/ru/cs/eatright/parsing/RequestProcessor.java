@@ -2,25 +2,28 @@ package ru.cs.eatright.parsing;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.cs.eatright.nlp.signatures.Query;
+import ru.cs.eatright.search.IndexSearcher;
+import ru.cs.eatright.search.KnowledgeApplier;
+
 import java.util.List;
 
 public class RequestProcessor {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestProcessor.class);
 
-    private final Tokenizer tokenizer;
+    private final QueryPipeline pipeline;
+    private final KnowledgeApplier knowledgeApplier;
 
-    public RequestProcessor(Tokenizer tokenizer) {
-        this.tokenizer = tokenizer;
+    public RequestProcessor(QueryPipeline pipeline, KnowledgeApplier knowledgeApplier) {
+        this.pipeline = pipeline;
+        this.knowledgeApplier = knowledgeApplier;
     }
 
     public String process(String request) {
         try {
-            List<Token> tokens = tokenizer.tokenize(request);
-            //todo: add other services to chain (such as PosTagger, lemmatizer, ..) and return result answer to bot
-
-            //for now it's just return tokens from request
-            return String.valueOf(tokens);
+            List<Query> queries = pipeline.convertRequest2StemmedQuery(request, false);
+            return knowledgeApplier.applyKnowledgeBaseToQuery(queries);
         } catch (Exception e) {
             logger.error("Exception occur during parsing text tokenization.", e);
             return "Failed to parse request";

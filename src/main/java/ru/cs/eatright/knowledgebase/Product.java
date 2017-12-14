@@ -1,23 +1,21 @@
-package ru.cs.eatright.base;
+package ru.cs.eatright.knowledgebase;
 
 public class  Product {
     private String name;
     private final double protein;
     private final double fat;
-
-
     private final double carbohydrate;
     private final double calorie;
-    private final double glycemic_index;
+    private final double glycemicIndex;
     private final int type;
 
-    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemic_index, int type) {
+    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemicIndex, int type) {
         this.name = name;
         this.protein = protein;
         this.fat = fat;
         this.carbohydrate = carbohydrate;
         this.calorie = calorie;
-        this.glycemic_index = glycemic_index;
+        this.glycemicIndex = glycemicIndex;
         this.type = type;
     }
 
@@ -32,11 +30,16 @@ public class  Product {
     public double getCalorie() {
         return calorie;
     }
-    public double getGlycemic_index() {
-        return glycemic_index;
+    public double getGlycemicIndex() {
+        return glycemicIndex;
     }
-    public int getType() {
+    public double getType() {
         return type;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s: калорийность '%f' калл, белки '%f'г, жиры '%f'г, углеводы '%f'г, ГИ '%f'",
+                name, calorie, protein, fat, carbohydrate, glycemicIndex);
+    }
 }
