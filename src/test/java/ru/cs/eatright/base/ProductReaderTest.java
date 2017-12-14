@@ -15,7 +15,6 @@ public class ProductReaderTest {
         String pathfortest = x.getAbsolutePath() + File.separator + "src" + File.separator+"test" + File.separator +
                 "resources" + File.separator + "food" + File.separator +"apple.json";
         File t = new File(pathfortest);
-        System.out.println(pathfortest);
         Product product = reader.readProduct(pathfortest);
 
         assertEquals("apple",product.getName());
