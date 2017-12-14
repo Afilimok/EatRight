@@ -23,7 +23,7 @@ public class ProductReaderTest {
         assertEquals(0.4, product.getFat(), 0.01);
         assertEquals(9.8, product.getCarbohydrate(), 0.01);
         assertEquals(47, product.getCalorie(), 0.01);
-        assertEquals(30, product.getGlycemic_index(), 0.01);
+        assertEquals(30, product.getglycemicIndex(), 0.01);
         assertEquals(3, product.getType(), 0.01);
 
     }

@@ -1,9 +1,9 @@
 {
- "name" : "Яйцо" ,
+ "name" : "Яйцо",
  "protein": 76,
  "fat": 6.3,
  "carbohydrate": 5.2, 
  "calorie": 0.7,
- "Glycemic_index": 48,
+ "glycemicIndex": 48,
  "type": 13
 }

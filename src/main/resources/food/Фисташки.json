@@ -4,6 +4,6 @@
  "fat": 21,
  "carbohydrate": 50, 
  "calorie": 10.8,
- "Glycemic_index": 15,
+ "glycemicIndex": 15,
  "type": 19
 }
