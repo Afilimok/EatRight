@@ -1,0 +1,9 @@
+{
+ "name" : "Колбасавареная" ,
+ "protein": 300,
+ "fat": 12,
+ "carbohydrate": 28, 
+ "calorie": 3,
+ "Glycemic_index": 34,
+ "type": 13
+}

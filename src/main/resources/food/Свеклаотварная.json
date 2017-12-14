@@ -1,0 +1,9 @@
+{
+ "name" : "Свеклаотварная" ,
+ "protein": 54,
+ "fat": 1.9,
+ "carbohydrate": 0.1, 
+ "calorie": 10.8,
+ "Glycemic_index": 64,
+ "type": 5
+}

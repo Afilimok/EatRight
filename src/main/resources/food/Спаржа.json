@@ -1,0 +1,9 @@
+{
+ "name" : "Спаржа" ,
+ "protein": 21,
+ "fat": 1.9,
+ "carbohydrate": 0.1, 
+ "calorie": 3.2,
+ "Glycemic_index": 15,
+ "type": 5
+}

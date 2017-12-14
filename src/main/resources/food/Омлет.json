@@ -1,0 +1,9 @@
+{
+ "name" : "Омлет" ,
+ "protein": 210,
+ "fat": 14,
+ "carbohydrate": 15, 
+ "calorie": 2.1,
+ "Glycemic_index": 49,
+ "type": 13
+}

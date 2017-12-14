@@ -1,0 +1,9 @@
+{
+ "name" : "Йогурт1.5%натуральный" ,
+ "protein": 47,
+ "fat": 5,
+ "carbohydrate": 1.5, 
+ "calorie": 3.5,
+ "Glycemic_index": 35,
+ "type": 17
+}

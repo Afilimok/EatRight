@@ -1,0 +1,9 @@
+{
+ "name" : "Хотдог" ,
+ "protein": 724,
+ "fat": 17,
+ "carbohydrate": 36, 
+ "calorie": 79,
+ "Glycemic_index": 90,
+ "type": 0
+}

@@ -1,0 +1,9 @@
+{
+ "name" : "Шпинат" ,
+ "protein": 22,
+ "fat": 2.9,
+ "carbohydrate": 0.3, 
+ "calorie": 2,
+ "Glycemic_index": 15,
+ "type": 21
+}

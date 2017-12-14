@@ -1,0 +1,9 @@
+{
+ "name" : "Виноград" ,
+ "protein": 64,
+ "fat": 0.6,
+ "carbohydrate": 0.2, 
+ "calorie": 16,
+ "Glycemic_index": 40,
+ "type": 3
+}

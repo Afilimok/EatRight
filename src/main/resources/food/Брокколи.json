@@ -1,0 +1,9 @@
+{
+ "name" : "Брокколи" ,
+ "protein": 27,
+ "fat": 3,
+ "carbohydrate": 0.4, 
+ "calorie": 4,
+ "Glycemic_index": 10,
+ "type": 5
+}

@@ -1,0 +1,9 @@
+{
+ "name" : "Шоколадтемный" ,
+ "protein": 539,
+ "fat": 6.2,
+ "carbohydrate": 35.4, 
+ "calorie": 48.2,
+ "Glycemic_index": 22,
+ "type": 0
+}

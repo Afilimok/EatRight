@@ -1,0 +1,9 @@
+{
+ "name" : "Сырфета" ,
+ "protein": 243,
+ "fat": 11,
+ "carbohydrate": 21, 
+ "calorie": 2.5,
+ "Glycemic_index": 56,
+ "type": 16
+}

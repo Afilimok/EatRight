@@ -1,0 +1,9 @@
+{
+ "name" : "Редис" ,
+ "protein": 20,
+ "fat": 1.2,
+ "carbohydrate": 0.1, 
+ "calorie": 3.4,
+ "Glycemic_index": 15,
+ "type": 5
+}

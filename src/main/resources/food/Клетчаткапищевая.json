@@ -1,0 +1,9 @@
+{
+ "name" : "Клетчаткапищевая" ,
+ "protein": 205,
+ "fat": 17,
+ "carbohydrate": 3.9, 
+ "calorie": 14,
+ "Glycemic_index": 30,
+ "type": 0
+}

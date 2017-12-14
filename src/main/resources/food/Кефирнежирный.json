@@ -1,0 +1,9 @@
+{
+ "name" : "Кефирнежирный" ,
+ "protein": 30,
+ "fat": 3,
+ "carbohydrate": 0.1, 
+ "calorie": 3.8,
+ "Glycemic_index": 25,
+ "type": 17
+}

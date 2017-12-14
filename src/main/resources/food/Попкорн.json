@@ -1,0 +1,9 @@
+{
+ "name" : "Попкорн" ,
+ "protein": 480,
+ "fat": 2.1,
+ "carbohydrate": 20, 
+ "calorie": 77.6,
+ "Glycemic_index": 85,
+ "type": 0
+}

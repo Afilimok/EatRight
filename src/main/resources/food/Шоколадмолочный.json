@@ -1,0 +1,9 @@
+{
+ "name" : "Шоколадмолочный" ,
+ "protein": 550,
+ "fat": 5,
+ "carbohydrate": 34.7, 
+ "calorie": 52.4,
+ "Glycemic_index": 70,
+ "type": 0
+}

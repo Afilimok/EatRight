@@ -7,9 +7,9 @@ public class  Product {
     private final double carbohydrate;
     private final double calorie;
     private final double glycemicIndex;
-    private final double type;
+    private final int type;
 
-    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemicIndex, double type) {
+    public Product(String name, double protein, double fat, double carbohydrate, double calorie, double glycemicIndex, int type) {
         this.name = name;
         this.protein = protein;
         this.fat = fat;
