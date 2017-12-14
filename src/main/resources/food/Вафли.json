@@ -1,0 +1,9 @@
+{
+ "name" : "Вафли" ,
+ "protein": 545,
+ "fat": 2.9,
+ "carbohydrate": 32.6, 
+ "calorie": 61.6,
+ "Glycemic_index": 80,
+ "type": 11
+}

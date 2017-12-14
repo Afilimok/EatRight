@@ -1,0 +1,9 @@
+{
+ "name" : "Вишня" ,
+ "protein": 49,
+ "fat": 0.8,
+ "carbohydrate": 0.5, 
+ "calorie": 10.3,
+ "Glycemic_index": 22,
+ "type": 2
+}

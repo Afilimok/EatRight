@@ -1,0 +1,9 @@
+{
+ "name" : "Манго" ,
+ "protein": 67,
+ "fat": 0.5,
+ "carbohydrate": 0.3, 
+ "calorie": 13.5,
+ "Glycemic_index": 55,
+ "type": 2
+}

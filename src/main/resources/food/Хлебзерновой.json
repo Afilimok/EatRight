@@ -1,0 +1,9 @@
+{
+ "name" : "Хлебзерновой" ,
+ "protein": 222,
+ "fat": 8.6,
+ "carbohydrate": 1.4, 
+ "calorie": 43.9,
+ "Glycemic_index": 40,
+ "type": 11
+}

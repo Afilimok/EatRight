@@ -1,0 +1,9 @@
+{
+ "name" : "Мороженое" ,
+ "protein": 218,
+ "fat": 4.2,
+ "carbohydrate": 11.8, 
+ "calorie": 23.7,
+ "Glycemic_index": 70,
+ "type": 0
+}

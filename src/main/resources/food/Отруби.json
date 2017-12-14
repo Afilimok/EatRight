@@ -1,0 +1,9 @@
+{
+ "name" : "Отруби" ,
+ "protein": 191,
+ "fat": 15.1,
+ "carbohydrate": 3.8, 
+ "calorie": 23.5,
+ "Glycemic_index": 51,
+ "type": 11
+}
