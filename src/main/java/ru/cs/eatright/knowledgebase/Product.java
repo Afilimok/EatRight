@@ -39,7 +39,7 @@ public class  Product {
 
     @Override
     public String toString() {
-        return String.format("%s: калорийность '%f' калл, белки '%f'г, жиры '%f'г, углеводы '%f'г, ГИ '%f'",
+        return String.format("%s: калорийность '%.1f' калл, белки '%.1f'г, жиры '%.1f'г, углеводы '%.1f'г, ГИ '%.1f'\n",
                 name, calorie, protein, fat, carbohydrate, glycemicIndex);
     }
 }
