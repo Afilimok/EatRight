@@ -33,7 +33,7 @@ public class  Product {
     public double getGlycemicIndex() {
         return glycemicIndex;
     }
-    public double getType() {
+    public int getType() {
         return type;
     }
 
