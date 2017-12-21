@@ -84,22 +84,22 @@ public class ResponseCreator {
                         int t = ArrayType[typeproduct1][typeproduct2];
                         logger.info("t =  " + t + "&");
                         if (t == 1) {
-                            productsInfo2.append(badСhoice + "(" + array_product[i].getName() + ";" + array_product[i].getName() + ")\n");
+                            productsInfo2.append(badСhoice + "(" + array_product[i].getName() + ";" + array_product[j].getName() + ")\n");
                         }
                         if (t == 2) {
-                            productsInfo2.append(badCombination + "(" + array_product[i].getName() + ";" + array_product[i].getName() + ")\n");
+                            productsInfo2.append(badCombination + "(" + array_product[i].getName() + ";" + array_product[j].getName() + ")\n");
 
                         }
                         if (t == 3) {
-                            productsInfo2.append(averageСombination + "(" + array_product[i].getName() + ";" + array_product[i].getName() + ")\n");
+                            productsInfo2.append(averageСombination + "(" + array_product[i].getName() + ";" + array_product[j].getName() + ")\n");
 
                         }
                         if (t == 4) {
-                            productsInfo2.append(goodСombination + "(" + array_product[i].getName() + ";" + array_product[i].getName() + ")\n");
+                            productsInfo2.append(goodСombination + "(" + array_product[i].getName() + ";" + array_product[j].getName() + ")\n");
 
                         }
                         if (t == 5) {
-                            productsInfo2.append(goodСhoice + "(" + array_product[i].getName() + ";" + array_product[i].getName() + ")\n");
+                            productsInfo2.append(goodСhoice + "(" + array_product[i].getName() + ";" + array_product[j].getName() + ")\n");
 
                         }
                     }
