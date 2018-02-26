@@ -18,10 +18,10 @@ import static ru.cs.eatright.nlp.RuleBasedPosTagger.*;
 
 public class Chunker {
 
-    private final TokenSequencePattern tokenPattern =
-            TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/NN.*/}]");
-
     private static final Logger logger = LoggerFactory.getLogger(Chunker.class);
+
+    private final TokenSequencePattern tokenPattern =
+            TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/(NN.*|X|VB)/}]");
 
     private StanfordCoreNLP pipeline = null;
 
@@ -39,7 +39,6 @@ public class Chunker {
         List<Phrase> phrases = new ArrayList<>();
         for (CoreMap sentence : sentences) {
             logger.info("Sentence tokens annotation: " + sentence.get(CoreAnnotations.TokensAnnotation.class));
-            logger.info("Sentence pos tags: " + sentence.get(CoreAnnotations.PartOfSpeechAnnotation.class));
             List<Phrase> newPhrases = getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class));
             phrases.addAll(newPhrases);
             logger.info("Added phrase: " + newPhrases);
@@ -53,6 +52,7 @@ public class Chunker {
     }
 
     private List<Phrase> getNounPhrases(List<CoreLabel> annotatedText) {
+        logger.info("Annotated text: " + annotatedText);
         List<Phrase> phrases = new ArrayList<>();
         TokenSequenceMatcher tokenMatcher = tokenPattern.getMatcher(annotatedText);
         while (tokenMatcher.find()){
@@ -60,12 +60,16 @@ public class Chunker {
 
             List<Word> words = new ArrayList<>();
             for (CoreMap match : matches) {
+                logger.info("Matches");
                 String token = match.get(CoreAnnotations.TextAnnotation.class);
                 PosTag postag = convertTag(match.get(CoreAnnotations.PartOfSpeechAnnotation.class));
+                logger.info("Token: " + token + ", POS Tag: " + postag);
                 words.add(new Word(token, postag));
             }
 
-            phrases.add(new Phrase(words));
+            Phrase phrase = new Phrase(words);
+            phrases.add(phrase);
+            logger.info("Added phrase: " + phrase);
         }
         return phrases;
     }
@@ -85,6 +89,17 @@ public class Chunker {
 
         if (sentences == null || sentences.isEmpty()) {
             return Collections.emptyList();
+        }
+
+        logger.info("Sentence annotations");
+        for (CoreMap sentence : sentences) {
+            for (CoreLabel token: sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+                String word = token.get(CoreAnnotations.TextAnnotation.class);
+                String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+
+                logger.info("Token: " + word);
+                logger.info("Part-Of-Speech-annotation: " + pos);
+            }
         }
 
         return sentences;
