@@ -7,6 +7,8 @@ import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.cs.eatright.nlp.signatures.Phrase;
 import ru.cs.eatright.nlp.signatures.Word;
 
@@ -18,6 +20,8 @@ public class Chunker {
 
     private final TokenSequencePattern tokenPattern =
             TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/NN.*/}]");
+
+    private static final Logger logger = LoggerFactory.getLogger(Chunker.class);
 
     private StanfordCoreNLP pipeline = null;
 
@@ -31,9 +35,14 @@ public class Chunker {
 
     public List<Phrase> getPhrases(String text) {
         List<CoreMap> sentences = getSentenceAnnotations(text);
+        logger.info("Recieved sentences: " + sentences);
         List<Phrase> phrases = new ArrayList<>();
         for (CoreMap sentence : sentences) {
-            phrases.addAll(getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class)));
+            logger.info("Sentence tokens annotation: " + sentence.get(CoreAnnotations.TokensAnnotation.class));
+            logger.info("Sentence pos tags: " + sentence.get(CoreAnnotations.PartOfSpeechAnnotation.class));
+            List<Phrase> newPhrases = getNounPhrases(sentence.get(CoreAnnotations.TokensAnnotation.class));
+            phrases.addAll(newPhrases);
+            logger.info("Added phrase: " + newPhrases);
         }
 
         if (phrases.isEmpty()) {

@@ -25,6 +25,7 @@ public class RequestProcessor {
 
         try {
             List<Query> queries = pipeline.convertRequest2StemmedQuery(request, false);
+            logger.info("Processed query: " + queries);
             return knowledgeApplier.applyKnowledgeBaseToQuery(queries);
         } catch (Exception e) {
             logger.error("Exception occur during parsing text tokenization.", e);

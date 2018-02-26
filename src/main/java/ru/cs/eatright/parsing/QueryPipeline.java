@@ -27,9 +27,13 @@ public class QueryPipeline {
     }
 
     public List<Query> convertRequest2StemmedQuery(String text, boolean excludeStopWords) throws IOException {
+        logger.info("Text: " + text);
         List<Token> tokens = tokenizer.tokenize(text);
+        logger.info("Tokens: " + tokens);
         String cleanedText = filterString(tokens, excludeStopWords);
+        logger.info("Cleaned Text: " + cleanedText);
         List<Phrase> phrases = chunker.getPhrases(cleanedText);
+        logger.info("Phrases: " + phrases);
         return getQueries(phrases);
     }
 
