@@ -1,0 +1,9 @@
+{
+ "name" : "Творог" ,
+ "protein": 88,
+ "fat": 18,
+ "carbohydrate": 1, 
+ "calorie": 1.2,
+ "Glycemic_index": 30,
+ "type": 15
+}

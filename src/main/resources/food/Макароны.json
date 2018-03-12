@@ -1,0 +1,9 @@
+{
+ "name" : "Макароны" ,
+ "protein": 344,
+ "fat": 12.8,
+ "carbohydrate": 0.4, 
+ "calorie": 70,
+ "Glycemic_index": 85,
+ "type": 11
+}

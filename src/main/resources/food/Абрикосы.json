@@ -1,9 +1,9 @@
 {
- "name" : "Абрикосы" ,
+ "name" : "Абрикос" ,
  "protein": 40,
  "fat": 0.9,
  "carbohydrate": 0.1, 
  "calorie": 9,
- "glycemicIndex": 20,
+ "Glycemic_index": 20,
  "type": 2
 }

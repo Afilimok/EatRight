@@ -1,9 +1,9 @@
 {
- "name" : "Груши" ,
+ "name" : "Груша" ,
  "protein": 42,
  "fat": 0.4,
  "carbohydrate": 0.3, 
  "calorie": 9.5,
- "glycemicIndex": 34,
+ "Glycemic_index": 34,
  "type": 1
 }

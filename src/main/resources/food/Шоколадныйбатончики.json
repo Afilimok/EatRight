@@ -1,9 +1,0 @@
-{
- "name" : "Шоколадныйбатончики" ,
- "protein": 500,
- "fat": 4,
- "carbohydrate": 25, 
- "calorie": 69,
- "glycemicIndex": 70,
- "type": 0
-}

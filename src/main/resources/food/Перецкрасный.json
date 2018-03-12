@@ -1,9 +1,0 @@
-{
- "name" : "Перецкрасный" ,
- "protein": 31,
- "fat": 1.3,
- "carbohydrate": 0.3, 
- "calorie": 5.9,
- "glycemicIndex": 15,
- "type": 5
-}

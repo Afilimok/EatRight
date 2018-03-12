@@ -1,0 +1,9 @@
+{
+ "name" : "Сметана" ,
+ "protein": 204,
+ "fat": 2.8,
+ "carbohydrate": 20, 
+ "calorie": 3.2,
+ "Glycemic_index": 56,
+ "type": 24
+}

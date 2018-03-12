@@ -1,0 +1,9 @@
+{
+ "name" : "Помидор" ,
+ "protein": 23,
+ "fat": 1.1,
+ "carbohydrate": 0.2, 
+ "calorie": 3.8,
+ "Glycemic_index": 10,
+ "type": 9
+}

@@ -1,0 +1,9 @@
+{
+ "name" : "Бублик" ,
+ "protein": 276,
+ "fat": 9.1,
+ "carbohydrate": 1.1, 
+ "calorie": 57.1,
+ "Glycemic_index": 103,
+ "type": 11
+}

@@ -1,9 +1,0 @@
-{
- "name" : "Пиццассыром" ,
- "protein": 236,
- "fat": 6.6,
- "carbohydrate": 13.3, 
- "calorie": 22.7,
- "glycemicIndex": 60,
- "type": 0
-}

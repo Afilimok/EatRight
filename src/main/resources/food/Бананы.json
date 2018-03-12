@@ -1,9 +1,9 @@
 {
- "name" : "Бананы" ,
+ "name" : "Банан" ,
  "protein": 91,
  "fat": 1.5,
  "carbohydrate": 0.1, 
  "calorie": 21,
- "glycemicIndex": 60,
+ "Glycemic_index": 60,
  "type": 1
 }

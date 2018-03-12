@@ -1,9 +1,0 @@
-{
- "name" : "Картофельвареный" ,
- "protein": 75,
- "fat": 2,
- "carbohydrate": 0.4, 
- "calorie": 15.8,
- "glycemicIndex": 65,
- "type": 12
-}

@@ -1,0 +1,9 @@
+{
+ "name" : "Рисовая" ,
+ "protein": 101,
+ "fat": 2.9,
+ "carbohydrate": 1.4, 
+ "calorie": 18,
+ "Glycemic_index": 70,
+ "type": 11
+}

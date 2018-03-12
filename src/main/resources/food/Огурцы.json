@@ -1,0 +1,9 @@
+{
+ "name" : "огурец" ,
+ "protein": 13,
+ "fat": 0.6,
+ "carbohydrate": 0.1, 
+ "calorie": 1.8,
+ "Glycemic_index": 20,
+ "type": 5
+}

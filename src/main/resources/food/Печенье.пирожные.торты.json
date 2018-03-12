@@ -1,9 +1,0 @@
-{
- "name" : "Печенье.пирожные.торты" ,
- "protein": 520,
- "fat": 4,
- "carbohydrate": 25, 
- "calorie": 70,
- "glycemicIndex": 100,
- "type": 11
-}
