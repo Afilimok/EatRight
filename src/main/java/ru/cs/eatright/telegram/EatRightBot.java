@@ -37,6 +37,7 @@ public class EatRightBot extends TelegramLongPollingBot {
                     .setText(response);
             try {
                 sendMessage(message);
+
             } catch (TelegramApiException e) {
                 logger.error("Exception while sending message to chat '{}'", chatId, e);
             }

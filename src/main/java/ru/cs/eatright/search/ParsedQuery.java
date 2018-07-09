@@ -18,7 +18,8 @@ public class ParsedQuery {
     }
 
     @Override
-    public boolean (Object o) {
+    public boolean equals(Object o) {
+
         if (this == o) return true;
         if (!(o instanceof ParsedQuery)) return false;
         ParsedQuery that = (ParsedQuery) o;

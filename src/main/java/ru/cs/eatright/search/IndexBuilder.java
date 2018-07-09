@@ -1,5 +1,8 @@
 package ru.cs.eatright.search;
 
+import edu.stanford.nlp.io.EncodingPrintWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.cs.eatright.knowledgebase.Product;
 import ru.cs.eatright.nlp.Stemmer;
 import java.util.Collections;
@@ -8,6 +11,7 @@ import java.util.Set;
 import static ru.cs.eatright.search.IndexHelper.*;
 
 public class IndexBuilder {
+    private static final Logger logger = LoggerFactory.getLogger(IndexBuilder.class);
 
     private final Stemmer stemmer;
 
@@ -28,7 +32,7 @@ public class IndexBuilder {
             //update index
             indexKeysForProduct.forEach(key -> index.update(key, Collections.singleton(product)));
         }
-
+        logger.info("____index: " +   index);
         return index;
     }
 }

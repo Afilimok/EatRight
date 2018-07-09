@@ -56,7 +56,7 @@ public class IndexSearcher {
                     int freq = productsFrequency.getOrDefault(product, 0);
                     productsFrequency.put(product, ++freq);
                 });
-
+        logger.info("productsFrequency____", productsFrequency);
         return productsFrequency;
     }
 }

@@ -1,5 +1,8 @@
 package ru.cs.eatright.search;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.cs.eatright.knowledgebase.Bootstrapper;
 import ru.cs.eatright.knowledgebase.Product;
 import ru.cs.eatright.nlp.signatures.Query;
 import ru.cs.eatright.nlp.signatures.Word;
@@ -7,10 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Scanner;
 
 import static ru.cs.eatright.nlp.RuleBasedPosTagger.*;
 
 public class KnowledgeApplierImpl implements KnowledgeApplier {
+    private static final Logger logger = LoggerFactory.getLogger(Bootstrapper.class);
     private final IndexSearcher indexSearcher;
 
     public KnowledgeApplierImpl(IndexSearcher indexSearcher) {
@@ -22,9 +31,13 @@ public class KnowledgeApplierImpl implements KnowledgeApplier {
     public String applyKnowledgeBaseToQuery(List<Query> queries) {
         List<ParsedQuery> parsedQueries = new ArrayList<>();
 
+
+        logger.info("__queries = ", queries);
         for (Query query: queries) {
+            logger.info("queries = ", queries);
             List<Product> products = new ArrayList<>();
             for (Word word: query.getWords()) {
+                logger.info("++word = ", word);
                 if (word.getPos() == PosTag.NOUN) searchIfNounIsProduct(word).ifPresent(products::add);
                 //todo: add checks for verbs, adverbs, ets
             }

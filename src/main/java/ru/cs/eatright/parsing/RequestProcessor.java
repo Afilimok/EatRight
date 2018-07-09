@@ -10,18 +10,21 @@ import java.util.List;
 
 public class RequestProcessor {
 
+
     private static final Logger logger = LoggerFactory.getLogger(RequestProcessor.class);
 
     private final QueryPipeline pipeline;
     private final KnowledgeApplier knowledgeApplier;
 
     public RequestProcessor(QueryPipeline pipeline, KnowledgeApplier knowledgeApplier) {
+        logger.info("pipeline= ", pipeline);
         this.pipeline = pipeline;
+        logger.info("knowledgeApplier= ", knowledgeApplier);
         this.knowledgeApplier = knowledgeApplier;
     }
 
     public String process(String request) {
-//
+
 
         try {
             List<Query> queries = pipeline.convertRequest2StemmedQuery(request, false);
