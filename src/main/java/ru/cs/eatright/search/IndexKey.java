@@ -12,25 +12,30 @@ public class IndexKey {
     private final String ngramm;
 
     public IndexKey(Integer position, String ngramm) {
+        logger.info("position = ", position, "   ngramm", ngramm);
         this.position = position;
         this.ngramm = ngramm;
     }
 
     public Integer getPosition() {
+        logger.info("position", position);
         return position;
     }
 
     public String getNgramm() {
+        logger.info("ngramm=", ngramm);
         return ngramm;
     }
 
     @Override
     public boolean equals(Object o) {
-
+        logger.info("Object o", o);
         if (this == o) return true;
         if (!(o instanceof IndexKey)) return false;
         IndexKey indexKey = (IndexKey) o;
-        logger.info("this = ", this);
+        logger.info("this = {}", this);
+        logger.info("getPosition() = {}", getPosition());
+        logger.info("indexKey.getPosition() = {}",indexKey.getPosition());
         return Objects.equal(getPosition(), indexKey.getPosition()) &&
                 Objects.equal(getNgramm(), indexKey.getNgramm());
     }

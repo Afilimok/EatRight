@@ -34,6 +34,7 @@ public class IndexSearcher {
     * @return map of found products and their frequencies
     */
     public Map<Product, Integer> searchData(String str) {
+        logger.info("str___", str, "___");
         Set<IndexKey> indexKeys = getNGramsByString(str, 2);
         indexKeys.addAll(getNGramsByString(str, 3));
 

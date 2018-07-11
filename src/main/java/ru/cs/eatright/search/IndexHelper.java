@@ -19,6 +19,7 @@ public class IndexHelper {
         IntStream.range(0, token.length() - ngramm + 1)
                 .forEach(i -> indexKeys.add(new IndexKey(i, token.substring(i, i + ngramm))));
 
+        logger.info("__indexKeys", indexKeys);
         return indexKeys;
     }
 }

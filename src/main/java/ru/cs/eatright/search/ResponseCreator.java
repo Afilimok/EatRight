@@ -29,7 +29,10 @@ public class ResponseCreator {
 
     public static String createResponse(List<ParsedQuery> parsedQueries) {
 
-        if (parsedQueries.isEmpty()) return emptyResponse;
+        if (parsedQueries.isEmpty()) {
+            logger.info("INFO_parsedQueries.isEmpty() == true");
+            return emptyResponse;
+        }
 
         String productsInfo = "";
         StringBuilder productsInfo2 = new StringBuilder();
@@ -112,11 +115,11 @@ public class ResponseCreator {
             response += averageCaloricity > 450
                     ? String.format(hugeAverageCaloricity, averageCaloricity)
                     : String.format(normalAverageCaloricity, averageCaloricity);
-
+            logger.info(response);
             return response;
         } catch (Exception e) {
-            //todo: log;
-            return emptyResponse ;
+
+            return emptyResponse;
         }
     }
 }
