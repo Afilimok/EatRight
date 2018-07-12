@@ -7,8 +7,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 import ru.cs.eatright.telegram.EatRightBot;
 
 public class Main {
-
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws TelegramApiRequestException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -18,6 +17,6 @@ public class Main {
 
         telegramBotsApi.registerBot(eatRightBot);
 
-        logger.info("EatRightBot session started!");
+        log.info("EatRightBot started!");
     }
 }

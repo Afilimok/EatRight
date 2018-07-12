@@ -12,14 +12,14 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
     compile group: 'org.telegram', name: 'telegrambots', version: '2.4.4.5'
     compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
     compile group: 'com.google.guava', name: 'guava', version: '22.0'
 
-    //loggers
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
-    compile group: 'org.slf4j', name: 'log4j', version: '1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'ch.qos.logback:logback-core:1.2.3'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
 
     compile group: 'edu.stanford.nlp', name: 'stanford-corenlp', version: '3.5.2'
     compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.3.0'
