@@ -12,18 +12,16 @@ public class IndexKey {
     private final String ngramm;
 
     public IndexKey(Integer position, String ngramm) {
-        logger.info("position = ", position, "   ngramm", ngramm);
+        //logger.info("position = {} ", position, "   ngramm = {}", ngramm);
         this.position = position;
         this.ngramm = ngramm;
     }
 
     public Integer getPosition() {
-        logger.info("position", position);
         return position;
     }
 
     public String getNgramm() {
-        logger.info("ngramm=", ngramm);
         return ngramm;
     }
 

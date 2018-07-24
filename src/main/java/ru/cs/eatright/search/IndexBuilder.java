@@ -33,7 +33,7 @@ public class IndexBuilder {
             //update index
             indexKeysForProduct.forEach(key -> index.update(key, Collections.singleton(product)));
         }
-        logger.info("____index: " +   index, "__");
+        logger.info("____index:  {}" , index);
         return index;
     }
 }

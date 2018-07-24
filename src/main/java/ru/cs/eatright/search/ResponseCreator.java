@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class ResponseCreator {
 
-    private static final Logger logger = LoggerFactory.getLogger(Bootstrapper.class);
+    private static final Logger logger = LoggerFactory.getLogger(ResponseCreator.class);
     private static final String emptyResponse = "Кажется ваш вопрос не относится к еде. Попробуйте еще раз?\n";
     private static final String generalInfo = "Продукты, упомянутые в вашем запросе имеют следующие характеристики (на 100 грамм): '%s'.\n";
     private static final String normalAverageCaloricity = "Средняя калорийность продуктов в вашем запросе '%.1f'cal.\n";

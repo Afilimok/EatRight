@@ -12,14 +12,14 @@ public class IndexHelper {
 
     public static Set<IndexKey> getNGramsByString(String str, int ngramm) {
 
-        logger.info(" int ngramm", ngramm);
-        logger.info(" str - ", str);
+        logger.info(" int ngramm {}", ngramm);
+        logger.info(" str - {}", str);
         Set<IndexKey> indexKeys = new HashSet<>();
         final String token = "$" + str + "^";
         IntStream.range(0, token.length() - ngramm + 1)
                 .forEach(i -> indexKeys.add(new IndexKey(i, token.substring(i, i + ngramm))));
 
-        logger.info("__indexKeys", indexKeys);
+        //logger.info("__indexKeys {}", indexKeys);
         return indexKeys;
     }
 }

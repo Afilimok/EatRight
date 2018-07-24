@@ -19,10 +19,11 @@ public class Index {
     public Index() {
         data = new HashMap<>();
     }
+    //todo tostring
 
     public void update(IndexKey key, Set<Product> newProducts) {
 
-        logger.info("key = ", key);
+        //logger.info("key = {}", key);
         Set<Product> products = data.getOrDefault(key, new HashSet<>());
         products.addAll(newProducts);
         data.put(key, products);

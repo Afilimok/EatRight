@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ProductReader {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    private static final Logger logger = LoggerFactory.getLogger(IndexSearcher.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductReader.class);
 
     public static Product readProduct (File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);

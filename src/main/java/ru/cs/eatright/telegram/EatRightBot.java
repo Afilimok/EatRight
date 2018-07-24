@@ -6,7 +6,12 @@ import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
+import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
 import ru.cs.eatright.parsing.RequestProcessor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EatRightBot extends TelegramLongPollingBot {
 
@@ -32,9 +37,37 @@ public class EatRightBot extends TelegramLongPollingBot {
 
             String response = requestProcessor.process(messageText);
 
+
             SendMessage message = new SendMessage()
                     .setChatId(chatId)
                     .setText(response);
+
+/*
+            InlineKeyboardButton dk1 = new InlineKeyboardButton().setText("like").setCallbackData("change_the_label");
+            InlineKeyboardButton dk2 = new InlineKeyboardButton().setText("like").setCallbackData("change_the_label");
+
+            InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+            List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+            List<InlineKeyboardButton> rowInline = new ArrayList<>();
+            rowInline.add(dk1);
+            rowsInline.add(rowInline);
+            markupInline.setKeyboard(rowsInline);
+            message.setReplyMarkup(markupInline);
+            */
+            InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+            List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+            List<InlineKeyboardButton> rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton().setText("Dislike").setCallbackData("d_update_msg_text"));
+            rowInline.add(new InlineKeyboardButton().setText("Like").setCallbackData("l_update_msg_text"));
+            rowInline.add(new InlineKeyboardButton().setText("Учесть").setCallbackData("y_update_msg_text"));
+
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+            // Add it to the message
+            markupInline.setKeyboard(rowsInline);
+            message.setReplyMarkup(markupInline);
+
+
             try {
                 sendMessage(message);
 

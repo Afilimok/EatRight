@@ -21,6 +21,7 @@ dependencies {
     compile 'ch.qos.logback:logback-core:1.2.3'
     compile 'ch.qos.logback:logback-classic:1.2.3'
 
+    compile group: 'ru.stachek66.nlp', name: 'mystem-scala', version: '0.1.4'
     compile group: 'edu.stanford.nlp', name: 'stanford-corenlp', version: '3.5.2'
     compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.3.0'
     compile group: 'org.apache.lucene.morphology', name: 'russian', version: '1.2'

@@ -19,7 +19,7 @@ import java.util.Scanner;
 import static ru.cs.eatright.nlp.RuleBasedPosTagger.*;
 
 public class KnowledgeApplierImpl implements KnowledgeApplier {
-    private static final Logger logger = LoggerFactory.getLogger(Bootstrapper.class);
+    private static final Logger logger = LoggerFactory.getLogger(KnowledgeApplierImpl.class);
     private final IndexSearcher indexSearcher;
 
     public KnowledgeApplierImpl(IndexSearcher indexSearcher) {
@@ -37,8 +37,9 @@ public class KnowledgeApplierImpl implements KnowledgeApplier {
             logger.info("queries = ", queries);
             List<Product> products = new ArrayList<>();
             for (Word word: query.getWords()) {
-                logger.info("++word = ", word);
+                logger.info("++word = {} ", word);
                 if (word.getPos() == PosTag.NOUN) searchIfNounIsProduct(word).ifPresent(products::add);
+                //if (word.getPos() == PosTag.OTHER) searchIfNounIsProduct(word).ifPresent(products::add);
                 //todo: add checks for verbs, adverbs, ets
             }
 
