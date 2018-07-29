@@ -34,45 +34,67 @@ public class EatRightBot extends TelegramLongPollingBot {
 
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
-
             String response = requestProcessor.process(messageText);
-
-
             SendMessage message = new SendMessage()
                     .setChatId(chatId)
                     .setText(response);
-
-/*
-            InlineKeyboardButton dk1 = new InlineKeyboardButton().setText("like").setCallbackData("change_the_label");
-            InlineKeyboardButton dk2 = new InlineKeyboardButton().setText("like").setCallbackData("change_the_label");
-
             InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
             List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
             List<InlineKeyboardButton> rowInline = new ArrayList<>();
-            rowInline.add(dk1);
+            rowInline.add(new InlineKeyboardButton().setText("\uD83D\uDC4E").setCallbackData("Dislike"));
+            rowInline.add(new InlineKeyboardButton().setText("\uD83D\uDC4D").setCallbackData("Like"));
+            rowInline.add(new InlineKeyboardButton().setText("\uD83D\uDC4C").setCallbackData("Add"));
+
             rowsInline.add(rowInline);
             markupInline.setKeyboard(rowsInline);
             message.setReplyMarkup(markupInline);
-            */
-            InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-            List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-            List<InlineKeyboardButton> rowInline = new ArrayList<>();
-            rowInline.add(new InlineKeyboardButton().setText("Dislike").setCallbackData("d_update_msg_text"));
-            rowInline.add(new InlineKeyboardButton().setText("Like").setCallbackData("l_update_msg_text"));
-            rowInline.add(new InlineKeyboardButton().setText("Учесть").setCallbackData("y_update_msg_text"));
-
-            // Set the keyboard to the markup
-            rowsInline.add(rowInline);
-            // Add it to the message
-            markupInline.setKeyboard(rowsInline);
-            message.setReplyMarkup(markupInline);
-
-
             try {
-                sendMessage(message);
-
+                execute(message);
             } catch (TelegramApiException e) {
-                logger.error("Exception while sending message to chat '{}'", chatId, e);
+                e.printStackTrace();
+            }
+
+        } else if (update.hasCallbackQuery()) {
+            String call_data = update.getCallbackQuery().getData();
+            long message_id = update.getCallbackQuery().getMessage().getMessageId();
+            long chat_id = update.getCallbackQuery().getMessage().getChatId();
+
+            if (call_data.equals("Add")) {
+
+                String response = "Добавили это информацию к сегодняшний съеденной еде";
+                SendMessage message = new SendMessage()
+                        .setChatId(chat_id)
+                        .setText(response);
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                logger.info("учесть___OK");
+            }
+            if (call_data.equals("Dislike")) {
+                logger.info("Dislike___OK");
+                String response = "Мы постараемся улучшить поиск";
+                SendMessage message = new SendMessage()
+                        .setChatId(chat_id)
+                        .setText(response);
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (call_data.equals("Like")) {
+                String response = "Мы рады, что вам нравится!";
+                SendMessage message = new SendMessage()
+                        .setChatId(chat_id)
+                        .setText(response);
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                logger.info("Like___OK");
             }
         }
     }
