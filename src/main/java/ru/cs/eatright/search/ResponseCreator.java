@@ -18,8 +18,8 @@ public class ResponseCreator {
     private static final Logger logger = LoggerFactory.getLogger(ResponseCreator.class);
     private static final String emptyResponse = "Кажется ваш вопрос не относится к еде. Попробуйте еще раз?\n";
     private static final String generalInfo = "Продукты, упомянутые в вашем запросе имеют следующие характеристики (на 100 грамм): '%s'.\n";
-    private static final String normalAverageCaloricity = "Средняя калорийность продуктов в вашем запросе '%.1f'cal.\n";
-    private static final String hugeAverageCaloricity = "Калорийность продуктов в вашем запросе '%.1f'cal. Вы точно собираетесь это есть?!\n";
+    private static final String normalAverageCaloricity = "Общая калорийность продуктов в вашем запросе '%.1f'cal.\n";
+    //private static final String hugeAverageCaloricity = "Калорийность продуктов в вашем запросе '%.1f'cal. Вы точно собираетесь это есть?!\n";
     private static final String goodСhoice = "Отличный выбор";
     private static final String goodСombination = "Хороший выбор";
     private static final String averageСombination = "Среднее сочетание продуктов";
@@ -43,6 +43,8 @@ public class ResponseCreator {
             for (Product product : parsedQuery.getProducts()) {
                 productsInfo += product.toString();
                 productNum++;
+
+                // todo: add *gramm
                 commonCaloricity += product.getCalorie();
             }
         }
@@ -76,7 +78,6 @@ public class ResponseCreator {
                 }
             }
 
-
             for (int i = 0; i < productNum; i++) {
                 for (int j = i + 1; j < productNum; j++) {
                     logger.info("productNum = " + productNum);
@@ -108,13 +109,9 @@ public class ResponseCreator {
                     }
                 }
             }
-
             String response = String.format(generalInfo, productsInfo);
             response += productsInfo2.toString();
-            double averageCaloricity = commonCaloricity / productNum;
-            response += averageCaloricity > 450
-                    ? String.format(hugeAverageCaloricity, averageCaloricity)
-                    : String.format(normalAverageCaloricity, averageCaloricity);
+            response +=  String.format(normalAverageCaloricity, commonCaloricity);
             logger.info(response);
             return response;
         } catch (Exception e) {

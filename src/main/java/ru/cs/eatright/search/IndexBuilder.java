@@ -25,15 +25,15 @@ public class IndexBuilder {
         for (Product product: products) {
 
             String stemmedProductName = stemmer.getStemmedWord(product.getName().toLowerCase().trim());
-            logger.info("___product:" +   product, "__");
+            //logger.info("___product:" +   product, "__");
             //get all bigrams and 3grams of product
             Set<IndexKey> indexKeysForProduct = getNGramsByString(stemmedProductName, 2);
             indexKeysForProduct.addAll(getNGramsByString(stemmedProductName, 3));
-            logger.info("indexKeysForProduct: " +   indexKeysForProduct, "__");
+            //logger.info("indexKeysForProduct: " +   indexKeysForProduct, "__");
             //update index
             indexKeysForProduct.forEach(key -> index.update(key, Collections.singleton(product)));
         }
-        logger.info("____index:  {}" , index);
+        //logger.info("____index:  {}" , index);
         return index;
     }
 }

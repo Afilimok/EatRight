@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class BasedOnMystemPosTagger {
     private static final Logger logger = LoggerFactory.getLogger(BasedOnMystemPosTagger.class);
-    private static final String MYSTEM_COMMAND = "/src/main/resources/mystem -idln --format=json -";
+    private static final String MYSTEM_COMMAND = "/Users/alina/Desktop/csc/eatright/eatRight/src/main/resources/mystem -idln --format=json -";
     private static ObjectMapper mapper = new ObjectMapper();
-
+/*
     // todo: Debug example
     public static void main(final String[] args) {
         BasedOnMystemPosTagger posTagger = new BasedOnMystemPosTagger();
@@ -28,7 +28,7 @@ public class BasedOnMystemPosTagger {
         for (String s : result) {
             System.out.println(s);
         }
-    }
+    }*/
 
     private String execToString(String text) throws Exception {
         String command = String.format("echo \"%s\" | %s", text, MYSTEM_COMMAND);
@@ -46,6 +46,8 @@ public class BasedOnMystemPosTagger {
     public ArrayList<String> posTag(String text) {
         try {
             String mystemResult = String.format("[%s]",execToString(text));
+            logger.info("mystemResult = {}", mystemResult);
+            System.out.println(mystemResult);
             mystemResult = mystemResult.replaceAll("\\}\n\\{", "},{");
             JsonNode node = mapper.readValue(mystemResult, JsonNode.class);
 

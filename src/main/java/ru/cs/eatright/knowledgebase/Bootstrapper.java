@@ -26,7 +26,7 @@ public class Bootstrapper {
             File folder = new ClassPathResource("food").getFile();
             for (File file: folder.listFiles()) {
                 Product product = ProductReader.readProduct(file);
-                logger.info("read product " + product.getName());
+                //logger.info("read product " + product.getName());
                 products.add(ProductReader.readProduct(file));
             }
             return indexBuilder.createIndex(products);

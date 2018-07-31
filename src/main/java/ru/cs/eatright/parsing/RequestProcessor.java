@@ -24,8 +24,6 @@ public class RequestProcessor {
     }
 
     public String process(String request) {
-
-
         try {
             List<Query> queries = pipeline.convertRequest2StemmedQuery(request, false);
             logger.info("Processed query: " + queries);

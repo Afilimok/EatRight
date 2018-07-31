@@ -6,15 +6,12 @@ import ru.cs.eatright.knowledgebase.Bootstrapper;
 import ru.cs.eatright.knowledgebase.Product;
 import ru.cs.eatright.nlp.signatures.Query;
 import ru.cs.eatright.nlp.signatures.Word;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+
+import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.List;
-import java.util.Scanner;
 
 import static ru.cs.eatright.nlp.RuleBasedPosTagger.*;
 
@@ -33,12 +30,16 @@ public class KnowledgeApplierImpl implements KnowledgeApplier {
 
 
         logger.info("__queries = ", queries);
-        for (Query query: queries) {
+        for (Query query : queries) {
             logger.info("queries = ", queries);
             List<Product> products = new ArrayList<>();
-            for (Word word: query.getWords()) {
+            for (Word word : query.getWords()) {
                 logger.info("++word = {} ", word);
-                if (word.getPos() == PosTag.NOUN) searchIfNounIsProduct(word).ifPresent(products::add);
+                if (Objects.equals(word.getPos(), "S")) {
+                    logger.info("я сюда не ходил");
+
+                    searchIfNounIsProduct(word).ifPresent(products::add);
+                }
                 //if (word.getPos() == PosTag.OTHER) searchIfNounIsProduct(word).ifPresent(products::add);
                 //todo: add checks for verbs, adverbs, ets
             }
@@ -50,7 +51,7 @@ public class KnowledgeApplierImpl implements KnowledgeApplier {
     }
 
     private Optional<Product> searchIfNounIsProduct(Word word) {
-        if (word.getPos() != PosTag.NOUN)
+        if (!Objects.equals(word.getPos(), "S"))
             throw new IllegalArgumentException(String.format("Word '%s' should be noun", word));
 
         Map<Product, Integer> productFrequencies = indexSearcher.searchData(word.getWord());

@@ -47,8 +47,8 @@ public class Product {
 
     @Override
     public String toString() {
-        //return String.format("\n%s: калорийность '%.1f' калл, белки '%.1f'г, жиры '%.1f'г, углеводы '%.1f'г, ГИ '%.1f'\n",
-        ///        name, calorie, protein, fat, carbohydrate, Glycemic_index);
-        return String.format("\n%s", name);
+        return String.format("\n%s: калорийность '%.1f' калл, белки '%.1f'г, жиры '%.1f'г, углеводы '%.1f'г, ГИ '%.1f'\n",
+                name, calorie, protein, fat, carbohydrate, Glycemic_index);
+        //return String.format("\n%s", name);
     }
 }
