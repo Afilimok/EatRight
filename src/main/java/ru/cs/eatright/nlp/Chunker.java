@@ -21,7 +21,7 @@ public class Chunker {
     private static final Logger logger = LoggerFactory.getLogger(Chunker.class);
 
     private final TokenSequencePattern tokenPattern =
-            TokenSequencePattern.compile("([{tag:/(JJ.*|NUM|NN.*|VB)/}] )*[{tag:/(NN.*|X|VB)/}]");
+            TokenSequencePattern.compile("([{tag:/(A.*|NUM|S.*)/}] )*[{tag:/(S.*|ADV)/}]");
 
     private StanfordCoreNLP pipeline = null;
 
