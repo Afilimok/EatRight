@@ -13,15 +13,18 @@ import edu.stanford.nlp.pipeline.Annotator;
 
 public class RusPosAnnotator implements Annotator {
 
-    private final RuleBasedPosTagger tagger = new RuleBasedPosTagger();
+    private final BasedOnMystemPosTagger tagger = new BasedOnMystemPosTagger();
 
     @Override
     public void annotate(Annotation annotation) {
+        List<String> postags = tagger.posTag(annotation.get(TextAnnotation.class));
         List<CoreLabel> list = annotation.get(TokensAnnotation.class);
-        for (CoreLabel token : list) {
-            String textToken = token.get(TextAnnotation.class);
-            RuleBasedPosTagger.PosTag tag = tagger.posTag(textToken);
-            token.set(CoreAnnotations.PartOfSpeechAnnotation.class, tag.getPennTag());
+
+        assert postags.size() == list.size();
+
+        for (int i = 0; i < list.size(); i++) {
+            CoreLabel token = list.get(i);
+            token.set(CoreAnnotations.PartOfSpeechAnnotation.class, postags.get(i));
         }
     }
 
