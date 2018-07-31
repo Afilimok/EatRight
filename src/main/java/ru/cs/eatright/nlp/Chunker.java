@@ -62,7 +62,8 @@ public class Chunker {
             for (CoreMap match : matches) {
                 logger.info("Matches");
                 String token = match.get(CoreAnnotations.TextAnnotation.class);
-                PosTag postag = convertTag(match.get(CoreAnnotations.PartOfSpeechAnnotation.class));
+                // PosTag postag = convertTag(match.get(CoreAnnotations.PartOfSpeechAnnotation.class));
+                String postag = match.get(CoreAnnotations.PartOfSpeechAnnotation.class);
                 logger.info("Token: " + token + ", POS Tag: " + postag);
                 words.add(new Word(token, postag));
             }

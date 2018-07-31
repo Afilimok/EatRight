@@ -5,9 +5,9 @@ import ru.cs.eatright.nlp.RuleBasedPosTagger;
 
 public class Word {
     private String word;
-    private RuleBasedPosTagger.PosTag pos;
+    private String pos;
 
-    public Word(String word, RuleBasedPosTagger.PosTag pos) {
+    public Word(String word, String pos) {
         this.word = word;
         this.pos = pos;
     }
@@ -16,7 +16,7 @@ public class Word {
         return word;
     }
 
-    public RuleBasedPosTagger.PosTag getPos() {
+    public String getPos() {
         return pos;
     }
 
