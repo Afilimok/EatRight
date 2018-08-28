@@ -7,6 +7,7 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class IndexHelperTest {
+    /*
     @Test
     public void get2GramsByString() {
         Set<IndexKey> expected = new HashSet<>();
@@ -26,5 +27,5 @@ public class IndexHelperTest {
         expected.add(new IndexKey(2, "ясо"));
         expected.add(new IndexKey(3, "со^"));
         assertEquals(expected, IndexHelper.getNGramsByString("мясо", 3));
-    }
+    }*/
 }

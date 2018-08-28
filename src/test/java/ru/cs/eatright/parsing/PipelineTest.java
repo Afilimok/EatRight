@@ -2,8 +2,8 @@ package ru.cs.eatright.parsing;
 
 import org.junit.Test;
 import ru.cs.eatright.nlp.*;
-import ru.cs.eatright.nlp.signatures.Query;
-import ru.cs.eatright.nlp.signatures.Word;
+//import ru.cs.eatright.nlp.signatures.Query;
+//import ru.cs.eatright.nlp.signatures.Word;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class PipelineTest {
-
+/*
     private final Tokenizer tokenizer = new StopWordTokenizer();
     private final Chunker chunker = new Chunker();
     private final Stemmer stemmer = new Stemmer();
@@ -45,4 +45,5 @@ public class PipelineTest {
                 false)
         );
     }
+*/
 }

@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -26,6 +27,9 @@ public class ResponseCreator {
     private static final String badCombination = "Плохое сочетание продуктов";
     private static final String badСhoice = "Вы точно хотите такое сочетание съесть?";
 
+
+    //todo map
+    //public static String createResponse(List<ParsedQuery> parsedQueries, MAP<???>) {
 
     public static String createResponse(List<ParsedQuery> parsedQueries) {
 
