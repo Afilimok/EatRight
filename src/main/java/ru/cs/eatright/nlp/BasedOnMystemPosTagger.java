@@ -16,7 +16,11 @@ import java.util.ArrayList;
 
 public class BasedOnMystemPosTagger {
     private static final Logger logger = LoggerFactory.getLogger(BasedOnMystemPosTagger.class);
-    private static final String MYSTEM_COMMAND = "/Users/alina/Desktop/csc/eatright/eatRight/src/main/resources/mystem -idln --format=json -";
+
+
+    //private static final String MYSTEM_COMMAND = "/Users/alina/Desktop/csc/eatright/eatRight/src/main/resources/mystem -idln --format=json -";
+
+    private static final String MYSTEM_COMMAND = "/home/alina/projects/mystem/mystem -idln --format=json -";
     private static ObjectMapper mapper = new ObjectMapper();
 /*
     // todo: Debug example
