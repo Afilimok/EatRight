@@ -1,9 +1,9 @@
 {
  "name" : "Пельмени" ,
- "protein": 252,
+ "protein": 37,
  "fat": 14,
  "carbohydrate": 6.3, 
- "calorie": 37,
+ "calorie": 252,
  "Glycemic_index": 60,
  "type": 0
 }

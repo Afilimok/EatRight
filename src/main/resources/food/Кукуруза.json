@@ -1,9 +1,9 @@
 {
  "name" : "Кукуруза" ,
- "protein": 123,
+ "protein": 22.5,
  "fat": 4.1,
  "carbohydrate": 2.3, 
- "calorie": 22.5,
+ "calorie": 123,
  "Glycemic_index": 70,
  "type": 5
 }

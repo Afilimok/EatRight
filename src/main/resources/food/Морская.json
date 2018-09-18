@@ -1,9 +1,9 @@
 {
  "name" : "Морская" ,
- "protein": 5,
+ "protein": 0.3,
  "fat": 0.9,
  "carbohydrate": 0.2, 
- "calorie": 0.3,
+ "calorie": 5,
  "Glycemic_index": 22,
  "type": 0
 }

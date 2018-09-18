@@ -1,9 +1,9 @@
 {
- "name" : "Апельсин" ,
- "protein": 38,
+ "name" : "Апельсины" ,
+ "protein": 8.3,
  "fat": 0.9,
  "carbohydrate": 0.2, 
- "calorie": 8.3,
+ "calorie": 38,
  "Glycemic_index": 35,
  "type": 4
 }

@@ -1,9 +1,9 @@
 {
- "name" : "Вареник" ,
- "protein": 234,
+ "name" : "Вареники" ,
+ "protein": 42,
  "fat": 6,
  "carbohydrate": 3.6, 
- "calorie": 42,
+ "calorie": 234,
  "Glycemic_index": 66,
  "type": 0
 }

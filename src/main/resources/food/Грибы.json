@@ -1,9 +1,9 @@
 {
- "name" : "Гриб" ,
- "protein": 29,
+ "name" : "Грибы" ,
+ "protein": 1.1,
  "fat": 3.7,
  "carbohydrate": 1.7, 
- "calorie": 1.1,
+ "calorie": 29,
  "Glycemic_index": 10,
  "type": 20
 }

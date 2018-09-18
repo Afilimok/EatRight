@@ -1,9 +1,9 @@
 {
  "name" : "Рис" ,
- "protein": 125,
+ "protein": 36,
  "fat": 2.7,
  "carbohydrate": 0.7, 
- "calorie": 36,
+ "calorie": 125,
  "Glycemic_index": 65,
  "type": 11
 }

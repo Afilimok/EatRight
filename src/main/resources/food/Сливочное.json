@@ -1,9 +1,9 @@
 {
  "name" : "Сливочное" ,
- "protein": 748,
+ "protein": 0.8,
  "fat": 0.4,
  "carbohydrate": 82.5, 
- "calorie": 0.8,
+ "calorie": 748,
  "Glycemic_index": 51,
  "type": 23
 }

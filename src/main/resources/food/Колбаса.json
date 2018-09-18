@@ -1,9 +1,9 @@
 {
  "name" : "Колбаса" ,
- "protein": 300,
+ "protein": 3,
  "fat": 12,
  "carbohydrate": 28, 
- "calorie": 3,
+ "calorie": 300,
  "Glycemic_index": 34,
  "type": 13
 }

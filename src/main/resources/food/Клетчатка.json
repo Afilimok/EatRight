@@ -1,9 +1,9 @@
 {
  "name" : "Клетчатка" ,
- "protein": 205,
+ "protein": 14,
  "fat": 17,
  "carbohydrate": 3.9, 
- "calorie": 14,
+ "calorie": 205,
  "Glycemic_index": 30,
  "type": 0
 }

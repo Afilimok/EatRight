@@ -1,9 +1,9 @@
 {
  "name" : "Халва" ,
- "protein": 522,
+ "protein": 50.6,
  "fat": 12.7,
  "carbohydrate": 29.9, 
- "calorie": 50.6,
+ "calorie": 522,
  "Glycemic_index": 70,
  "type": 0
 }

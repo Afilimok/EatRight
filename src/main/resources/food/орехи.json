@@ -1,9 +1,9 @@
 {
  "name" : "орехи" ,
- "protein": 710,
+ "protein": 15.2,
  "fat": 15.6,
  "carbohydrate": 65.2, 
- "calorie": 15.2,
+ "calorie": 710,
  "Glycemic_index": 15,
  "type": 19
 }

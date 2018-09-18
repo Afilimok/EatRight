@@ -1,9 +1,9 @@
 {
  "name" : "Сухарики" ,
- "protein": 360,
+ "protein": 74,
  "fat": 11.5,
  "carbohydrate": 2, 
- "calorie": 74,
+ "calorie": 360,
  "Glycemic_index": 74,
  "type": 11
 }

@@ -1,9 +1,9 @@
 {
  "name" : "Укроп" ,
- "protein": 31,
+ "protein": 4.1,
  "fat": 2.5,
  "carbohydrate": 0.5, 
- "calorie": 4.1,
+ "calorie": 31,
  "Glycemic_index": 15,
  "type": 21
 }

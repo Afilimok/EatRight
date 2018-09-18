@@ -1,9 +1,9 @@
 {
  "name" : "Бефстроганов" ,
- "protein": 207,
+ "protein": 5.7,
  "fat": 16.6,
  "carbohydrate": 13.1, 
- "calorie": 5.7,
+ "calorie": 207,
  "Glycemic_index": 56,
  "type": 13
 }

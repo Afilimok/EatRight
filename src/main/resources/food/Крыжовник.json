@@ -1,9 +1,9 @@
 {
  "name" : "Крыжовник" ,
- "protein": 41,
+ "protein": 9.1,
  "fat": 0.7,
  "carbohydrate": 0.2, 
- "calorie": 9.1,
+ "calorie": 41,
  "Glycemic_index": 40,
  "type": 1
 }

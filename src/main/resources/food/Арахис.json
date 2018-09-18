@@ -1,9 +1,9 @@
 {
  "name" : "Арахис" ,
- "protein": 612,
+ "protein": 10.8,
  "fat": 20.9,
  "carbohydrate": 45.2, 
- "calorie": 10.8,
+ "calorie": 612,
  "Glycemic_index": 20,
  "type": 19
 }

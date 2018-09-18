@@ -1,9 +1,9 @@
 {
- "name" : "Кабачек" ,
- "protein": 104,
+ "name" : "Кабачки" ,
+ "protein": 10.3,
  "fat": 1.3,
  "carbohydrate": 6, 
- "calorie": 10.3,
+ "calorie": 104,
  "Glycemic_index": 75,
  "type": 6
 }

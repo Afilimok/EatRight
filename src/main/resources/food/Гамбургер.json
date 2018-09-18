@@ -1,9 +1,9 @@
 {
  "name" : "Гамбургер" ,
- "protein": 486,
+ "protein": 36.7,
  "fat": 25.8,
  "carbohydrate": 26.2, 
- "calorie": 36.7,
+ "calorie": 486,
  "Glycemic_index": 103,
  "type": 0
 }

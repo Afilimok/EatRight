@@ -1,9 +1,9 @@
 {
  "name" : "Брусника" ,
- "protein": 43,
+ "protein": 8,
  "fat": 0.7,
  "carbohydrate": 0.5, 
- "calorie": 8,
+ "calorie": 43,
  "Glycemic_index": 25,
  "type": 4
 }

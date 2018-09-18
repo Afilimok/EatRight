@@ -1,9 +1,9 @@
 {
  "name" : "Шоколад" ,
- "protein": 539,
+ "protein": 48.2,
  "fat": 6.2,
  "carbohydrate": 35.4, 
- "calorie": 48.2,
+ "calorie": 539,
  "Glycemic_index": 22,
  "type": 0
 }

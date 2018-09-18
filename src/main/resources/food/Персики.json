@@ -1,9 +1,9 @@
 {
  "name" : "Персики" ,
- "protein": 42,
+ "protein": 9.5,
  "fat": 0.9,
  "carbohydrate": 0.1, 
- "calorie": 9.5,
+ "calorie": 42,
  "Glycemic_index": 30,
  "type": 3
 }

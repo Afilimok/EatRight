@@ -1,9 +1,9 @@
 {
  "name" : "Котлеты" ,
- "protein": 168,
+ "protein": 16.1,
  "fat": 12.5,
  "carbohydrate": 6, 
- "calorie": 16.1,
+ "calorie": 168,
  "Glycemic_index": 50,
  "type": 13
 }

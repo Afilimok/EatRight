@@ -1,9 +1,9 @@
 {
  "name" : "Миндаль" ,
- "protein": 648,
+ "protein": 13.6,
  "fat": 18.6,
  "carbohydrate": 57.7, 
- "calorie": 13.6,
+ "calorie": 648,
  "Glycemic_index": 25,
  "type": 19
 }

@@ -1,9 +1,9 @@
 {
  "name" : "Сливы" ,
- "protein": 43,
+ "protein": 9.6,
  "fat": 0.8,
  "carbohydrate": 0.2, 
- "calorie": 9.6,
+ "calorie": 43,
  "Glycemic_index": 22,
  "type": 1
 }

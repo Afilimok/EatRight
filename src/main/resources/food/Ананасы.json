@@ -1,9 +1,9 @@
 {
- "name" : "Ананас" ,
- "protein": 49,
+ "name" : "Ананасы" ,
+ "protein": 11.6,
  "fat": 0.5,
  "carbohydrate": 0.2, 
- "calorie": 11.6,
+ "calorie": 49,
  "Glycemic_index": 66,
  "type": 4
 }

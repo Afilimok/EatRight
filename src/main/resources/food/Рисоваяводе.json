@@ -1,9 +1,9 @@
 {
  "name" : "Рисоваяводе" ,
- "protein": 107,
+ "protein": 63.5,
  "fat": 2.4,
  "carbohydrate": 0.4, 
- "calorie": 63.5,
+ "calorie": 107,
  "Glycemic_index": 80,
  "type": 11
 }

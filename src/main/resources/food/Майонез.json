@@ -1,9 +1,9 @@
 {
  "name" : "Майонез" ,
- "protein": 621,
+ "protein": 2.6,
  "fat": 0.3,
  "carbohydrate": 67, 
- "calorie": 2.6,
+ "calorie": 621,
  "Glycemic_index": 60,
  "type": 0
 }

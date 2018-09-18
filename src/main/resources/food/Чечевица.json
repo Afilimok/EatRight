@@ -1,9 +1,9 @@
 {
  "name" : "Чечевица" ,
- "protein": 128,
+ "protein": 20.3,
  "fat": 10.3,
  "carbohydrate": 0.4, 
- "calorie": 20.3,
+ "calorie": 128,
  "Glycemic_index": 25,
  "type": 0
 }

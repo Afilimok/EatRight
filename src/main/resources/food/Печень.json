@@ -1,9 +1,9 @@
 {
  "name" : "Печень" ,
- "protein": 199,
+ "protein": 3.9,
  "fat": 22.9,
  "carbohydrate": 10.2, 
- "calorie": 3.9,
+ "calorie": 199,
  "Glycemic_index": 50,
  "type": 13
 }

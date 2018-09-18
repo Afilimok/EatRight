@@ -1,9 +1,9 @@
 {
  "name" : "Лимон" ,
- "protein": 33,
+ "protein": 3,
  "fat": 0.9,
  "carbohydrate": 0.1, 
- "calorie": 3,
+ "calorie": 33,
  "Glycemic_index": 20,
  "type": 4
 }

@@ -1,9 +1,9 @@
 {
  "name" : "Фасоль" ,
- "protein": 127,
+ "protein": 0.2,
  "fat": 9.6,
  "carbohydrate": 0.5, 
- "calorie": 0.2,
+ "calorie": 127,
  "Glycemic_index": 40,
  "type": 18
 }

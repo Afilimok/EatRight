@@ -1,9 +1,9 @@
 {
  "name" : "Черешня" ,
- "protein": 50,
+ "protein": 10.6,
  "fat": 1.2,
  "carbohydrate": 0.4, 
- "calorie": 10.6,
+ "calorie": 50,
  "Glycemic_index": 25,
  "type": 2
 }

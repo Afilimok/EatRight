@@ -1,9 +1,9 @@
 {
  "name" : "Малина" ,
- "protein": 39,
+ "protein": 8.3,
  "fat": 0.8,
  "carbohydrate": 0.3, 
- "calorie": 8.3,
+ "calorie": 39,
  "Glycemic_index": 30,
  "type": 2
 }

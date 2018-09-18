@@ -1,9 +1,9 @@
 {
  "name" : "Хлеб" ,
- "protein": 214,
+ "protein": 42.4,
  "fat": 6.7,
  "carbohydrate": 1, 
- "calorie": 42.4,
+ "calorie": 214,
  "Glycemic_index": 65,
  "type": 11
 }

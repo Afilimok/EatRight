@@ -1,9 +1,9 @@
 {
- "name" : "Блин" ,
- "protein": 185,
+ "name" : "Блины" ,
+ "protein": 34.3,
  "fat": 5.2,
  "carbohydrate": 3, 
- "calorie": 34.3,
+ "calorie": 185,
  "Glycemic_index": 69,
  "type": 11
 }

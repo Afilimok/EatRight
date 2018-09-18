@@ -1,9 +1,9 @@
 {
  "name" : "Пицца" ,
- "protein": 236,
+ "protein": 22.7,
  "fat": 6.6,
  "carbohydrate": 13.3, 
- "calorie": 22.7,
+ "calorie": 236,
  "Glycemic_index": 60,
  "type": 0
 }

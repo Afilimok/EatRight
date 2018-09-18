@@ -1,9 +1,9 @@
 {
  "name" : "Сосиски" ,
- "protein": 266,
+ "protein": 1.6,
  "fat": 10.4,
  "carbohydrate": 24, 
- "calorie": 1.6,
+ "calorie": 266,
  "Glycemic_index": 28,
  "type": 13
 }

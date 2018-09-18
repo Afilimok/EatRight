@@ -1,9 +1,9 @@
 {
  "name" : "Капуста" ,
- "protein": 75,
+ "protein": 9.6,
  "fat": 2,
  "carbohydrate": 3, 
- "calorie": 9.6,
+ "calorie": 75,
  "Glycemic_index": 15,
  "type": 5
 }

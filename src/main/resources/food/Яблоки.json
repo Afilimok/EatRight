@@ -1,9 +1,9 @@
 {
- "name" : "Яблоко" ,
- "protein": 44,
+ "name" : "Яблоки" ,
+ "protein": 9.8,
  "fat": 0.4,
  "carbohydrate": 0.4, 
- "calorie": 9.8,
+ "calorie": 44,
  "Glycemic_index": 30,
  "type": 4
 }

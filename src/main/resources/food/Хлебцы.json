@@ -1,9 +1,9 @@
 {
  "name" : "Хлебцы" ,
- "protein": 291,
+ "protein": 56.5,
  "fat": 11.3,
  "carbohydrate": 2.16, 
- "calorie": 56.5,
+ "calorie": 291,
  "Glycemic_index": 45,
  "type": 11
 }

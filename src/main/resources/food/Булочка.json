@@ -1,9 +1,9 @@
 {
  "name" : "Булочка" ,
- "protein": 292,
+ "protein": 54.7,
  "fat": 7.5,
  "carbohydrate": 4.9, 
- "calorie": 54.7,
+ "calorie": 292,
  "Glycemic_index": 88,
  "type": 11
 }

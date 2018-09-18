@@ -1,9 +1,9 @@
 {
  "name" : "Сыр" ,
- "protein": 243,
+ "protein": 2.5,
  "fat": 11,
  "carbohydrate": 21, 
- "calorie": 2.5,
+ "calorie": 243,
  "Glycemic_index": 56,
  "type": 16
 }

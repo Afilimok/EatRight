@@ -1,9 +1,9 @@
 {
  "name" : "Раки" ,
- "protein": 97,
+ "protein": 1,
  "fat": 20.3,
  "carbohydrate": 1.3, 
- "calorie": 1,
+ "calorie": 97,
  "Glycemic_index": 5,
  "type": 0
 }

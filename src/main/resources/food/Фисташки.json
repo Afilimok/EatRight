@@ -1,9 +1,9 @@
 {
  "name" : "Фисташки" ,
- "protein": 577,
+ "protein": 10.8,
  "fat": 21,
  "carbohydrate": 50, 
- "calorie": 10.8,
+ "calorie": 577,
  "Glycemic_index": 15,
  "type": 19
 }

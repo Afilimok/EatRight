@@ -1,9 +1,9 @@
 {
  "name" : "Салат" ,
- "protein": 17,
+ "protein": 2.3,
  "fat": 1.5,
  "carbohydrate": 0.2, 
- "calorie": 2.3,
+ "calorie": 17,
  "Glycemic_index": 10,
  "type": 21
 }

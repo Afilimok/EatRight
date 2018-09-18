@@ -1,9 +1,9 @@
 {
  "name" : "Киви" ,
- "protein": 49,
+ "protein": 11.5,
  "fat": 0.4,
  "carbohydrate": 0.2, 
- "calorie": 11.5,
+ "calorie": 49,
  "Glycemic_index": 50,
  "type": 2
 }

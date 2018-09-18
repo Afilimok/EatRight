@@ -1,9 +1,9 @@
 {
  "name" : "Гречневая" ,
- "protein": 153,
+ "protein": 29,
  "fat": 5.9,
  "carbohydrate": 1.6, 
- "calorie": 29,
+ "calorie": 153,
  "Glycemic_index": 50,
  "type": 11
 }

@@ -1,9 +1,9 @@
 {
  "name" : "Маргарин" ,
- "protein": 743,
+ "protein": 2.1,
  "fat": 0.2,
  "carbohydrate": 82, 
- "calorie": 2.1,
+ "calorie": 743,
  "Glycemic_index": 55,
  "type": 0
 }

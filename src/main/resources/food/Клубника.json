@@ -1,9 +1,9 @@
 {
  "name" : "Клубника" ,
- "protein": 32,
+ "protein": 6.3,
  "fat": 0.8,
  "carbohydrate": 0.4, 
- "calorie": 6.3,
+ "calorie": 32,
  "Glycemic_index": 32,
  "type": 2
 }

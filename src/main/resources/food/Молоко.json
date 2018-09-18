@@ -1,9 +1,9 @@
 {
  "name" : "Молоко" ,
- "protein": 40,
+ "protein": 0.8,
  "fat": 3.8,
  "carbohydrate": 1.9, 
- "calorie": 0.8,
+ "calorie": 40,
  "Glycemic_index": 30,
  "type": 0
 }
